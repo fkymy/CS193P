@@ -14,9 +14,9 @@ struct Card
     var isMatched: Bool = false
     var identifier: Int
 
-    static var identifierFactory = 0
+    private static var identifierFactory = 0
 
-    static func getUniqueIdentifier() -> Int {
+    private static func getUniqueIdentifier() -> Int {
         // static is sent to the type Card itself
         identifierFactory += 1 // in a static method, so no need to call Card.var
         return identifierFactory
