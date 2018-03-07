@@ -9,55 +9,73 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var board: Board!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        startNewGame()
+    }
+
+    @IBAction func onNewGame(_ sender: UIButton) {
+        print("newGameButton has been tapped!")
+        startNewGame()
     }
     
-    var emojiStore = "👻🎃👺💩🤖🌚"
-    var emojis = [Card: String]()
+    private func startNewGame() {
+        board = Board(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        emojiStore = "👻🎃👺💩🤖🌚"
+        emojis = [:]
+        updateBoardView()
+        updateFilpCount()
+    }
 
-    func emoji(for card: Card) -> String {
+    @IBOutlet var cardButtons: [UIButton]!
+
+    @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var flipCountLabel: UILabel!
+
+    private var emojiStore = "👻🎃👺💩🤖🌚"
+    private var emojis = [Card: String]()
+
+    private func emoji(for card: Card) -> String {
         if emojis[card] == nil, emojiStore.count > 0 {
-            let randomIndex = emojiStore.count.arc4random
+            let randomIndex = (emojiStore.count - 1).arc4random
             let randomStringIndex = emojiStore.index(emojiStore.startIndex, offsetBy: randomIndex)
             emojis[card] = String(emojiStore.remove(at: randomStringIndex))
         }
         return emojis[card] ?? "?"
     }
 
-    lazy var game: Board = Board(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
-
-    @IBOutlet weak var flipCountLabel: UILabel!
-
-    @IBOutlet var cardButtons: [UIButton]!
 
     @IBAction func tapCard(_ sender: UIButton) {
         if let tappedIndex = cardButtons.index(of: sender) {
-            game.flipCard(at: tappedIndex)
+            board.flipCard(at: tappedIndex)
             updateBoardView()
+            updateFilpCount()
         }
     }
     
-    func updateBoardView() {
+    private func updateBoardView() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
-            let card = game.cards[index]
+            let card = board.cards[index]
             if card.isFaceUp {
                 button.setTitle(emoji(for: card), for: UIControlState.normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
                 button.setTitle("", for: UIControlState.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) : #colorLiteral(red: 0.9662213922, green: 0.3991800845, blue: 0.4120171368, alpha: 1)
             }
         }
-
+    }
+    
+    private func updateFilpCount() {
         let attributes: [NSAttributedStringKey:Any] = [
             .strokeWidth : 5.0,
-            .strokeColor : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+            .strokeColor : #colorLiteral(red: 0.9662213922, green: 0.3991800845, blue: 0.4120171368, alpha: 1)
         ]
-        let attributedText = NSAttributedString(string: "Flips: \(game.flipCount)", attributes: attributes)
+        let attributedText = NSAttributedString(string: "Flips: \(board.flipCount)", attributes: attributes)
         flipCountLabel.attributedText = attributedText
-        // flipCountLabel.text = "Flips: \(game.flipCount)"
     }
 }
 

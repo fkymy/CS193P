@@ -183,6 +183,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL5-Pv-QhF">
+                                <rect key="frame" x="141" y="579" width="94" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hjR-g8-1xI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -196,6 +208,7 @@
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="2No-qd-1qu" id="3pm-2L-2x0"/>
+                        <outlet property="newGameButton" destination="eL5-Pv-QhF" id="9T7-f0-a0Q"/>
                         <outletCollection property="cardButtons" destination="0jH-ok-CBu" collectionClass="NSMutableArray" id="pm2-je-22C"/>
                         <outletCollection property="cardButtons" destination="S8I-1b-el4" collectionClass="NSMutableArray" id="YI3-7R-5c8"/>
                         <outletCollection property="cardButtons" destination="aEg-pl-zts" collectionClass="NSMutableArray" id="vqx-qK-Pnr"/>

@@ -13,12 +13,16 @@ struct Card: Hashable {
     var isFaceUp: Bool = false
     var isMatched: Bool = false
 
+    var isFlippable: Bool {
+        return !isFaceUp && !isMatched
+    }
+
     var hashValue: Int
 
     static func ==(lhs: Card, rhs: Card) -> Bool {
         return lhs.identifier == rhs.identifier
     }
-
+    
     private static var identifierFactory = 0
     private static func getUniqueIdentifier() -> Int {
         identifierFactory += 1
