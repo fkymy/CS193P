@@ -35,7 +35,7 @@ class Board {
             let card = unShuffledCards.remove(at: randomIndex)
             cards.append(card)
         }
-    }√
+    }
     
     private func incrementFlipCount() {
         flipCount += 1
