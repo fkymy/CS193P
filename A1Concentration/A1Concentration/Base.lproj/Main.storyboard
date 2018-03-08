@@ -178,14 +178,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2No-qd-1qu">
-                                <rect key="frame" x="141" y="711" width="93.666666666666686" height="36"/>
+                                <rect key="frame" x="141.33333333333334" y="711" width="93.666666666666657" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL5-Pv-QhF">
-                                <rect key="frame" x="141" y="579" width="94" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL5-Pv-QhF">
+                                <rect key="frame" x="143" y="583" width="89" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="New Game">
@@ -195,19 +194,34 @@
                                     <action selector="onNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hjR-g8-1xI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eQ-Cu-viP">
+                                <rect key="frame" x="133.66666666666666" y="644" width="107.66666666666666" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="nKy-Mj-m0A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2No-qd-1qu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="096-lP-t0T"/>
                             <constraint firstItem="WzQ-8u-Tkn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0EG-Bx-QZK"/>
+                            <constraint firstItem="2No-qd-1qu" firstAttribute="top" secondItem="9eQ-Cu-viP" secondAttribute="bottom" constant="29" id="2XT-zp-XBa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WzQ-8u-Tkn" secondAttribute="trailing" constant="16" id="F47-tG-8c4"/>
+                            <constraint firstItem="9eQ-Cu-viP" firstAttribute="top" secondItem="eL5-Pv-QhF" secondAttribute="bottom" constant="27" id="NoN-zp-fI4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2No-qd-1qu" secondAttribute="bottom" constant="31" id="feN-gg-gPG"/>
                             <constraint firstItem="WzQ-8u-Tkn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hb6-3K-Ahu"/>
+                            <constraint firstItem="9eQ-Cu-viP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vP7-gg-07y"/>
+                            <constraint firstItem="eL5-Pv-QhF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w8n-Zp-RYz"/>
+                            <constraint firstItem="eL5-Pv-QhF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zSX-x8-JYO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="2No-qd-1qu" id="3pm-2L-2x0"/>
+                        <outlet property="gameScoreLabel" destination="9eQ-Cu-viP" id="cxU-85-c1r"/>
                         <outlet property="newGameButton" destination="eL5-Pv-QhF" id="9T7-f0-a0Q"/>
                         <outletCollection property="cardButtons" destination="0jH-ok-CBu" collectionClass="NSMutableArray" id="pm2-je-22C"/>
                         <outletCollection property="cardButtons" destination="S8I-1b-el4" collectionClass="NSMutableArray" id="YI3-7R-5c8"/>

@@ -10,7 +10,8 @@ import Foundation
 
 struct Card: Hashable {
     private let identifier: Int
-    var isFaceUp: Bool = false
+    var isFaceUp: Bool = false { didSet { if isFaceUp { isSeen = true } } }
+    var isSeen: Bool = false
     var isMatched: Bool = false
 
     var isFlippable: Bool {

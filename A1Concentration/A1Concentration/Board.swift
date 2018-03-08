@@ -10,7 +10,18 @@ import Foundation
 
 class Board {
     private(set) var cards = [Card]()
+    private(set) var gameScore: Int = 0
     private(set) var flipCount: Int = 0
+    
+    static var matchPoints = 20
+    static var wasFaceUpPenalty = 10
+    static var maxTimePenalty = 10
+    
+    private var date = Date()
+    private var currentDate: Date { return Date() }
+    var timeInterval: Int {
+        return Int(-date.timeIntervalSinceNow)
+    }
 
     private var oneAndOnlyFaceUpCardIndex: Int? {
         get {
@@ -49,12 +60,18 @@ class Board {
                 if cards[tappedIndex] == cards[matchIndex] {
                     cards[tappedIndex].isMatched = true
                     cards[matchIndex].isMatched = true
+                    gameScore += (Board.matchPoints - min(timeInterval, Board.maxTimePenalty))
+                } else {
+                    if cards[tappedIndex].isSeen {
+                        gameScore -= (Board.wasFaceUpPenalty + min(timeInterval, Board.maxTimePenalty))
+                    }
                 }
                 cards[tappedIndex].isFaceUp = true
             } else {
                 oneAndOnlyFaceUpCardIndex = tappedIndex
             }
             incrementFlipCount()
+            date = currentDate
         }
     }
 }

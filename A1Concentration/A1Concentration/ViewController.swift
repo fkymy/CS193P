@@ -25,6 +25,9 @@ class ViewController: UIViewController {
     private var theme: ThemaData! {
         didSet {
             view.backgroundColor = theme.backgroundColor
+            newGameButton.setTitleColor(theme.cardBackColor, for: UIControlState.normal)
+            gameScoreLabel.textColor = theme.cardBackColor
+            flipCountLabel.textColor = theme.cardBackColor
         }
     }
     
@@ -46,7 +49,9 @@ class ViewController: UIViewController {
         board = Board(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
         emojiDict = [:]
         emojiChoices = theme.emojis
+
         updateBoardView()
+        updateGameScore()
         updateFilpCount()
     }
 
@@ -59,12 +64,14 @@ class ViewController: UIViewController {
     @IBOutlet var cardButtons: [UIButton]!
 
     @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var gameScoreLabel: UILabel!
     @IBOutlet weak var flipCountLabel: UILabel!
 
     @IBAction func tapCard(_ sender: UIButton) {
         if let tappedIndex = cardButtons.index(of: sender) {
             board.flipCard(at: tappedIndex)
             updateBoardView()
+            updateGameScore()
             updateFilpCount()
         }
     }
@@ -85,11 +92,24 @@ class ViewController: UIViewController {
 
     private func updateFilpCount() {
         let attributes: [NSAttributedStringKey:Any] = [
-            .strokeWidth : 5.0,
-            .strokeColor : theme.cardBackColor
+            .strokeWidth: 2.0
         ]
-        let attributedText = NSAttributedString(string: "Flips: \(board.flipCount)", attributes: attributes)
+        let attributedText = NSAttributedString(
+            string: "Flips: \(board.flipCount)",
+            attributes: attributes
+        )
         flipCountLabel.attributedText = attributedText
+    }
+    
+    private func updateGameScore() {
+        let attributes: [NSAttributedStringKey:Any] = [
+            .strokeWidth: 2.0
+        ]
+        let attributedText = NSAttributedString(
+            string: "Score: \(board.gameScore)",
+            attributes: attributes
+        )
+        gameScoreLabel.attributedText = attributedText
     }
 
     private func emoji(for card: Card) -> String {
