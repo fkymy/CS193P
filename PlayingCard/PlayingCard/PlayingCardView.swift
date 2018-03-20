@@ -11,9 +11,9 @@ import UIKit
 @IBDesignable
 class PlayingCardView: UIView {
     @IBInspectable
-    var rank: Int = 5 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var rank: Int = 11 { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
-    var suit: String = "♥️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var suit: String = "♠️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
     var isFaceUp = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
@@ -125,7 +125,7 @@ class PlayingCardView: UIView {
         roundedRect.fill()
         
         if isFaceUp {
-            if let faceCardImage = UIImage(named: rankString+suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+            if let faceCardImage = UIImage(named: rankString + suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
                 faceCardImage.draw(in: bounds.zoom(by: faceCardScale))
             } else {
                 drawPips()

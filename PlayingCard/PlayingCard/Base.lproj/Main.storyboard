@@ -32,9 +32,6 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="6Mk-aW-OVJ" appends="YES" id="qUW-vZ-JRd"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96840423345565796" green="0.98051208257675171" blue="0.91369360685348511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
