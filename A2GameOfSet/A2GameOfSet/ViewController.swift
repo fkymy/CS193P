@@ -102,6 +102,8 @@ class ViewController: UIViewController {
                 }
             }
         }
+        
+        updateViewLabels()
     }
 
     func updateViewLabels() {
