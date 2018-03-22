@@ -22,6 +22,10 @@ struct Card: CustomStringConvertible {
         return identifierFactory
     }()
     
+    var rawValuesAsMatrix: [Int] {
+        return [number.rawValue, symbol.rawValue, shading.rawValue, color.rawValue]
+    }
+    
     init(with number: Int, _ symbol: Int, _ shading: Int, _ color: Int) {
         self.number = Number(rawValue: number)!
         self.symbol = Symbol(rawValue: symbol)!
