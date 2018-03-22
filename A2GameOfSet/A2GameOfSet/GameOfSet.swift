@@ -14,8 +14,11 @@ class GameOfSet {
     
     lazy var cardsDealt: [Card] = deck.draw(n: .twelve) ?? []
     var cardsTaken: [Card] = []
+    
+    var deckCount: Int { return deck.count }
 
     func isSet(cards: [Card]) -> Bool {
+        return true
         guard cards.count == 3 else { return false }
         var sumMatrix = [Int](repeating: 0, count: cards[0].rawValuesAsMatrix.count)
         
@@ -35,7 +38,13 @@ class GameOfSet {
         return cards
     }
     
-    func selectCard() {}
+    func removeCardsFromTable(cards: [Card]) {
+        guard isSet(cards: cards) else { return }
+        for index in cards.indices {
+            let cardFromTable = cardsDealt.remove(at: index)
+            cardsTaken.append(cardFromTable)
+        }
+    }
 }
 
 extension GameOfSet: CustomStringConvertible {

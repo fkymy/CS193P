@@ -392,6 +392,8 @@
                     </view>
                     <connections>
                         <outlet property="cardsInDeckLabel" destination="KRm-eM-yoM" id="Ea9-eT-dbt"/>
+                        <outlet property="drawCardButton" destination="BxV-PA-THC" id="LDG-WC-6iY"/>
+                        <outlet property="newGameButton" destination="NX7-76-S3h" id="cOJ-rW-SMM"/>
                         <outlet property="setsFoundLabel" destination="1tj-uj-Vqt" id="pKf-vm-2dP"/>
                         <outletCollection property="cardButtons" destination="1IJ-hL-MAC" collectionClass="NSMutableArray" id="Ugq-YW-uZD"/>
                         <outletCollection property="cardButtons" destination="3E9-u3-RTU" collectionClass="NSMutableArray" id="oCd-gL-DcH"/>

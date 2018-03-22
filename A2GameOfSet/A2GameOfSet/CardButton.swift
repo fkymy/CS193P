@@ -14,8 +14,10 @@ class CardButton: UIButton {
         didSet {
             if let card = card {
                 setAttributedTitle(attributedString(for: card), for: .normal)
+                selectState = .unselected
             } else {
                 setAttributedTitle(NSAttributedString(), for: .normal)
+                selectState = .unselected
             }
         }
     }
@@ -36,6 +38,28 @@ class CardButton: UIButton {
         super.init(coder: aDecoder)
         setLayout()
     }
+    
+    enum SelectState {
+        case unselected
+        case selected
+        case selectedAndMatched
+    }
+    
+    var selectState: SelectState = .unselected {
+        didSet {
+            switch selectState {
+            case .unselected:
+                layer.borderWidth = LayOutMetricsForCardView.borderWidth
+                layer.borderColor = LayOutMetricsForCardView.borderColor
+            case .selected:
+                layer.borderWidth = LayOutMetricsForCardView.borderWidthSelected
+                layer.borderColor = LayOutMetricsForCardView.borderColorSelected
+            case .selectedAndMatched:
+                layer.borderWidth = LayOutMetricsForCardView.borderWidthMatched
+                layer.borderColor = LayOutMetricsForCardView.borderColorMatched
+            }
+        }
+    }
 
     func attributedString(for card: Card) -> NSAttributedString {
         let symbol: String = ModelToView.symbols[card.symbol]!
@@ -53,4 +77,22 @@ class CardButton: UIButton {
         ]
         return NSAttributedString(string: returnString, attributes: attributes)
     }
+}
+
+struct LayOutMetricsForCardView {
+    static var cornerRadius: CGFloat = 8.0
+    static var borderWidth: CGFloat = 1.0
+    static var borderColor: CGColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+
+    static var borderWidthSelected: CGFloat = 3.0
+    static var borderColorSelected: CGColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor
+    
+    static var borderWidthHinted: CGFloat = 4.0
+    static var borderColorHinted: CGColor = #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1).cgColor
+    
+    static var borderWidthMatched: CGFloat = 4.0
+    static var borderColorMatched: CGColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1).cgColor
+    
+    static var borderWidthDrawButton: CGFloat = 3.0
+    static var borderColorDrawButton: CGColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
 }

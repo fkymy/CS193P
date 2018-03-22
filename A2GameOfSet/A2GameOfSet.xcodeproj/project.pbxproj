@@ -29,7 +29,7 @@
 		D9CBE9FB2063890600DC5900 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D9CBE9FD2063894500DC5900 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		D9CBE9FF2063902A00DC5900 /* GameOfSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfSet.swift; sourceTree = "<group>"; };
-		D9CBEA032063C05700DC5900 /* CardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardButton.swift; path = A2GameOfSet/CardButton.swift; sourceTree = "<group>"; };
+		D9CBEA032063C05700DC5900 /* CardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,6 @@
 		D9A892342052971700181332 = {
 			isa = PBXGroup;
 			children = (
-				D9CBEA032063C05700DC5900 /* CardButton.swift */,
 				D9A8923F2052971700181332 /* A2GameOfSet */,
 				D9A8923E2052971700181332 /* Products */,
 			);
@@ -64,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				D9A892442052971700181332 /* Main.storyboard */,
+				D9CBEA032063C05700DC5900 /* CardButton.swift */,
 				D9A892422052971700181332 /* ViewController.swift */,
 				D9CBE9FB2063890600DC5900 /* Card.swift */,
 				D9CBE9FF2063902A00DC5900 /* GameOfSet.swift */,
