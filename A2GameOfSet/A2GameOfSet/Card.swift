@@ -1,0 +1,60 @@
+//
+//  Card.swift
+//  A2GameOfSet
+//
+//  Created by Yuske Fukuyama on 2018/03/22.
+//  Copyright © 2018 Yuske Fukuyama. All rights reserved.
+//
+
+import Foundation
+
+struct Card: CustomStringConvertible {
+
+    let number: Number
+    let symbol: Symbol
+    let shading: Shading
+    let color: Color
+    
+    static var identifierFactory = 0
+    
+    let identifier: Int = {
+        identifierFactory += 1
+        return identifierFactory
+    }()
+    
+    init(with number: Int, _ symbol: Int, _ shading: Int, _ color: Int) {
+        self.number = Number(rawValue: number)!
+        self.symbol = Symbol(rawValue: symbol)!
+        self.shading = Shading(rawValue: shading)!
+        self.color = Color(rawValue: color)!
+    }
+    
+    enum Number: Int {
+        case one = 1
+        case two
+        case three
+    }
+    
+    enum Symbol: Int {
+        case diamond = 1
+        case squiggle
+        case oval
+    }
+    
+    enum Shading: Int {
+        case solid = 1
+        case striped
+        case open
+    }
+    
+    enum Color: Int {
+        case red = 1
+        case green
+        case purple
+    }
+    
+    var description: String {
+        return "Card \(identifier): \(number), \(symbol), \(shading), \(color)"
+    }
+}
+

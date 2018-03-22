@@ -27,14 +27,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="171" height="30"/>
                                         <state key="normal" title="New Game"/>
                                         <connections>
-                                            <action selector="onNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VpT-nD-7Xs"/>
+                                            <action selector="onNewGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VpT-nD-7Xs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxV-PA-THC">
                                         <rect key="frame" x="171" y="0.0" width="171" height="30"/>
                                         <state key="normal" title="Draw 3 Cards"/>
                                         <connections>
-                                            <action selector="onDrawCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OCl-pK-hhI"/>
+                                            <action selector="onDrawCardsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OCl-pK-hhI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -54,7 +54,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="▲▲▲"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qKx-Cp-Zpz"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qKx-Cp-Zpz"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-u3-RTU">
@@ -62,7 +62,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZJn-JY-a7J"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZJn-JY-a7J"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCN-jb-roN">
@@ -70,7 +70,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ZN-pg-54Q"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ZN-pg-54Q"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-aL-1Oy">
@@ -78,7 +78,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UQO-cn-Gw7"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UQO-cn-Gw7"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -105,7 +105,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3an-vJ-2Zu"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3an-vJ-2Zu"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-rZ-96v">
@@ -113,7 +113,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tjS-Xp-5FO"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tjS-Xp-5FO"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-9A-Vsi">
@@ -121,7 +121,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rp0-v2-5lY"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rp0-v2-5lY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5R-4N-pgZ">
@@ -129,7 +129,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="24s-gN-Pqh"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="24s-gN-Pqh"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -156,7 +156,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCa-fa-7wq"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCa-fa-7wq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kU5-FO-sT7">
@@ -164,7 +164,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WdJ-np-ZlP"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WdJ-np-ZlP"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOU-pz-NFP">
@@ -172,7 +172,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6C-GA-dJT"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6C-GA-dJT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzq-It-ms6">
@@ -180,7 +180,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ER3-oa-yjd"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ER3-oa-yjd"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -207,7 +207,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s7M-Zk-3Nf"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s7M-Zk-3Nf"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovb-6D-Jl2">
@@ -215,7 +215,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQa-IO-5ac"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQa-IO-5ac"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-1I-Jeu">
@@ -223,7 +223,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sqo-mw-xla"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sqo-mw-xla"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-3w-50C">
@@ -231,7 +231,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VHe-86-Ydb"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VHe-86-Ydb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -258,7 +258,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7k6-bc-K1m"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7k6-bc-K1m"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOC-Vc-Lww">
@@ -266,7 +266,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUo-ug-1Kt"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUo-ug-1Kt"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWs-1F-Dk8">
@@ -274,7 +274,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sK-Ke-RgH"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sK-Ke-RgH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bz-mb-afU">
@@ -282,7 +282,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mxq-VQ-Mew"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mxq-VQ-Mew"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -309,7 +309,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4HQ-RC-2Vf"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4HQ-RC-2Vf"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgK-XL-mVV">
@@ -317,7 +317,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ly-51-ZMa"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ly-51-ZMa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pS8-TH-nph">
@@ -325,7 +325,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Un-Xz-cHH"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Un-Xz-cHH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbI-Ri-wZj">
@@ -333,7 +333,7 @@
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <connections>
-                                                    <action selector="tapCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e4v-Gv-BJl"/>
+                                                    <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e4v-Gv-BJl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
