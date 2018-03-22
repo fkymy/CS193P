@@ -8,24 +8,28 @@
 
 import Foundation
 
-struct Card: CustomStringConvertible {
+struct Card: Equatable, Hashable, CustomStringConvertible {
 
     let number: Number
     let symbol: Symbol
     let shading: Shading
     let color: Color
     
-    static var identifierFactory = 0
+    private static var identifierFactory = 0
     
-    let identifier: Int = {
+    let hashValue: Int = {
         identifierFactory += 1
         return identifierFactory
     }()
-    
+
     var rawValuesAsMatrix: [Int] {
         return [number.rawValue, symbol.rawValue, shading.rawValue, color.rawValue]
     }
     
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+
     init(with number: Int, _ symbol: Int, _ shading: Int, _ color: Int) {
         self.number = Number(rawValue: number)!
         self.symbol = Symbol(rawValue: symbol)!
@@ -58,7 +62,7 @@ struct Card: CustomStringConvertible {
     }
     
     var description: String {
-        return "Card \(identifier): \(number), \(symbol), \(shading), \(color)"
+        return "Card \(hashValue): \(number), \(symbol), \(shading), \(color)"
     }
 }
 

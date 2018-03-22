@@ -9,13 +9,48 @@
 import UIKit
 
 class CardButton: UIButton {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    var card: Card? {
+        didSet {
+            if let card = card {
+                setAttributedTitle(attributedString(for: card), for: .normal)
+            } else {
+                setAttributedTitle(NSAttributedString(), for: .normal)
+            }
+        }
     }
-    */
+    
+    private func setLayout() {
+        backgroundColor = #colorLiteral(red: 0.9628086289, green: 0.8465488767, blue: 0.5487685946, alpha: 1)
+        layer.borderWidth = LayOutMetricsForCardView.borderWidth
+        layer.borderColor = LayOutMetricsForCardView.borderColor
+        layer.cornerRadius = LayOutMetricsForCardView.cornerRadius
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLayout()
+    }
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setLayout()
+    }
+
+    func attributedString(for card: Card) -> NSAttributedString {
+        let symbol: String = ModelToView.symbols[card.symbol]!
+        let strokeColor: UIColor = ModelToView.colors[card.color]!
+        let strokeWidth: CGFloat = ModelToView.strokeWidth[card.shading]!
+        let foregroundColor = strokeColor.withAlphaComponent(ModelToView.alpha[card.shading]!)
+        
+        var returnString: String = symbol
+        for _ in 1..<card.number.rawValue { returnString += symbol }
+        
+        let attributes: [NSAttributedStringKey:Any] = [
+            .strokeColor: strokeColor,
+            .strokeWidth: strokeWidth,
+            .foregroundColor: foregroundColor
+        ]
+        return NSAttributedString(string: returnString, attributes: attributes)
+    }
 }

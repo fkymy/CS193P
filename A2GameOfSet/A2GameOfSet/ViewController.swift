@@ -10,18 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var game: GameOfSet!
-
-    @IBOutlet var cardButtons: [UIButton]! {
+    private var game: GameOfSet! {
         didSet {
-            for button in cardButtons {
-                button.backgroundColor = #colorLiteral(red: 0.9628086289, green: 0.8465488767, blue: 0.5487685946, alpha: 1)
-                button.layer.borderWidth = LayOutMetricsForCardView.borderWidth
-                button.layer.borderColor = LayOutMetricsForCardView.borderColor
-                button.layer.cornerRadius = LayOutMetricsForCardView.cornerRadius
+            let cardsOnTable = game.cardsDealt
+            cardsOnTable.indices.forEach {
+                cardButtons[$0].card = cardsOnTable[$0]
             }
         }
     }
+
+    @IBOutlet var cardButtons: [CardButton]!
     
     @IBOutlet weak var setsFoundLabel: UILabel!
     @IBOutlet weak var cardsInDeckLabel: UILabel!
@@ -29,74 +27,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startNewGame()
-        updateViewFromModel()
     }
     
     private func startNewGame() {
         game = GameOfSet()
-        print(game)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    @IBAction func onCardButton(_ sender: UIButton) {
-        if let index = cardButtons.index(of: sender) {
-            let card = game.cardsDealt[index]
-            game.cardsSelected.append(card)
-            updateViewFromModel()
-        }
+    @IBAction func onCardButton(_ sender: CardButton) {
     }
     
     @IBAction func onNewGameButton(_ sender: UIButton) {
-        game = GameOfSet()
     }
     
     @IBAction func onDrawCardsButton(_ sender: UIButton) {
-        // check for slots
     }
 
-    func updateViewFromModel() {
-        let cardsDealt = game.cardsDealt
-        let cardsSelected = game.cardsSelected
-        
-        for index in cardsDealt.indices {
-            let button = cardButtons[index]
-            button.setAttributedTitle(attributedString(for: cardsDealt[index]), for: .normal)
-        }
-        
-        for index in cardsSelected.indices {
-            let button = cardButtons[index]
-            
-            if game.isSet() {
-                button.layer.borderWidth = LayOutMetricsForCardView.borderWidthMatched
-                button.layer.borderColor = LayOutMetricsForCardView.borderColorMatched
-            } else {
-                button.layer.borderWidth = LayOutMetricsForCardView.borderWidthSelected
-                button.layer.borderColor = LayOutMetricsForCardView.borderColorSelected
-            }
-        }
-    }
-    
-    
-    
-    func attributedString(for card: Card) -> NSAttributedString {
-        let symbol: String = ModelToView.symbols[card.symbol]!
-        let strokeColor: UIColor = ModelToView.colors[card.color]!
-        let strokeWidth: CGFloat = ModelToView.strokeWidth[card.shading]!
-        let foregroundColor = strokeColor.withAlphaComponent(ModelToView.alpha[card.shading]!)
-        
-        var returnString: String = symbol
-        for _ in 1..<card.number.rawValue { returnString += symbol }
-        
-        let attributes: [NSAttributedStringKey:Any] = [
-            .strokeColor: strokeColor,
-            .strokeWidth: strokeWidth,
-            .foregroundColor: foregroundColor
-        ]
-        return NSAttributedString(string: returnString, attributes: attributes)
-    }
 }
 
 struct ModelToView {

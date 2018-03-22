@@ -34,7 +34,7 @@
                                         <rect key="frame" x="171" y="0.0" width="171" height="30"/>
                                         <state key="normal" title="Draw 3 Cards"/>
                                         <connections>
-                                            <action selector="onDrawCardsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OCl-pK-hhI"/>
+                                            <action selector="onDrawCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OCl-pK-hhI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -48,7 +48,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mJ4-LT-FEM">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="83.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IJ-hL-MAC">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IJ-hL-MAC" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -57,7 +57,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qKx-Cp-Zpz"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-u3-RTU">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-u3-RTU" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="88" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -65,7 +65,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZJn-JY-a7J"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCN-jb-roN">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCN-jb-roN" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="175.5" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -73,7 +73,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ZN-pg-54Q"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-aL-1Oy">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-aL-1Oy" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="263.5" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -100,7 +100,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DGR-sA-iHU">
                                         <rect key="frame" x="0.0" y="91.5" width="343" height="83.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75U-Fp-MzV">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75U-Fp-MzV" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -108,7 +108,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3an-vJ-2Zu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-rZ-96v">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-rZ-96v" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="88" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -116,7 +116,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tjS-Xp-5FO"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-9A-Vsi">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-9A-Vsi" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="175.5" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -124,7 +124,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rp0-v2-5lY"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5R-4N-pgZ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5R-4N-pgZ" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="263.5" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -151,7 +151,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SAC-ex-Ixt">
                                         <rect key="frame" x="0.0" y="183" width="343" height="83.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcJ-vy-fcw">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcJ-vy-fcw" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -159,7 +159,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCa-fa-7wq"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kU5-FO-sT7">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kU5-FO-sT7" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="88" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -167,7 +167,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WdJ-np-ZlP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOU-pz-NFP">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOU-pz-NFP" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="175.5" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -175,7 +175,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6C-GA-dJT"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzq-It-ms6">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzq-It-ms6" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="263.5" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -202,7 +202,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="v99-qA-v0F">
                                         <rect key="frame" x="0.0" y="274.5" width="343" height="83.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r87-94-cu5">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r87-94-cu5" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -210,7 +210,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s7M-Zk-3Nf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovb-6D-Jl2">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovb-6D-Jl2" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="88" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -218,7 +218,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQa-IO-5ac"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-1I-Jeu">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-1I-Jeu" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="175.5" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -226,7 +226,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sqo-mw-xla"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-3w-50C">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-3w-50C" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="263.5" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -253,7 +253,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wsa-mv-s1D">
                                         <rect key="frame" x="0.0" y="366" width="343" height="83.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaS-Vy-zaf">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaS-Vy-zaf" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -261,7 +261,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7k6-bc-K1m"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOC-Vc-Lww">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOC-Vc-Lww" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="88" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -269,7 +269,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUo-ug-1Kt"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWs-1F-Dk8">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWs-1F-Dk8" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="175.5" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -277,7 +277,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sK-Ke-RgH"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bz-mb-afU">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bz-mb-afU" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="263.5" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -304,7 +304,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MDu-nM-zM8">
                                         <rect key="frame" x="0.0" y="457.5" width="343" height="83.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvV-LK-U5s">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvV-LK-U5s" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -312,7 +312,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4HQ-RC-2Vf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgK-XL-mVV">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgK-XL-mVV" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="88" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -320,7 +320,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ly-51-ZMa"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pS8-TH-nph">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pS8-TH-nph" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="175.5" y="0.0" width="80" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -328,7 +328,7 @@
                                                     <action selector="onCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Un-Xz-cHH"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbI-Ri-wZj">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbI-Ri-wZj" customClass="CardButton" customModule="A2GameOfSet" customModuleProvider="target">
                                                 <rect key="frame" x="263.5" y="0.0" width="79.5" height="83.5"/>
                                                 <color key="backgroundColor" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
