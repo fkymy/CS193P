@@ -28,6 +28,10 @@ class ViewController: UIViewController, LayoutViews {
         didSet {
             layout(for: boardView)
             boardView.backgroundColor = #colorLiteral(red: 0.9628086289, green: 0.8465488767, blue: 0.5487685946, alpha: 1)
+            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(onDrawCardSwipe(_:)))
+            swipe.direction = [.down]
+            boardView.addGestureRecognizer(swipe)
+            boardView.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action: #selector(onShuffleCardRotation(_:))))
             boardView.delegate = self // as! LayoutViews
         }
     }
@@ -94,16 +98,6 @@ class ViewController: UIViewController, LayoutViews {
         }
     }
     
-    @objc func onCardTapGesture(_ recognizer: UITapGestureRecognizer) {
-        guard let tappedCard = recognizer.view as? CardView else { return }
-        if selectedCardViews.count == 3 {
-            if setExists { return }
-            selectedCardViews.forEach { $0.selectState = .unselected }
-        }
-        tappedCard.selectState = tappedCard.selectState == .selected ? .unselected : .selected
-        if setExists { return }
-    }
-    
     private func drawCards() {
         if setExists {
             handleSetState()
@@ -119,10 +113,36 @@ class ViewController: UIViewController, LayoutViews {
         }
     }
     
+    @objc func onCardTapGesture(_ recognizer: UITapGestureRecognizer) {
+        guard let tappedCard = recognizer.view as? CardView else { return }
+        if selectedCardViews.count == 3 {
+            if setExists { return }
+            selectedCardViews.forEach { $0.selectState = .unselected }
+        }
+        tappedCard.selectState = tappedCard.selectState == .selected ? .unselected : .selected
+        if setExists { return }
+    }
+
     @IBAction func onDrawCardButton(_ sender: UIButton) {
         drawCards()
     }
     
+    @objc func onDrawCardSwipe(_ recognizer: UISwipeGestureRecognizer) {
+        drawCards()
+    }
+    
+    @objc func onShuffleCardRotation(_ recognizer: UIRotationGestureRecognizer) {
+        if recognizer.state == .ended {
+            var cardsDealt = game.cardsDealt
+            var index = 0
+            while !cardsDealt.isEmpty {
+                let card = cardsDealt.remove(at: cardsDealt.count.arc4Random)
+                cardViews[index].card = card
+                index += 1
+            }
+        }
+    }
+
     @IBAction func onNewGameButton(_ sender: UIButton) {
         cardViews.forEach {
             $0.card = nil
