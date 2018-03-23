@@ -99,7 +99,6 @@ class ViewController: UIViewController {
                                             }
                                         }
                                     )
-                                    
                                 }
                             )
                         } else if cardToAnimate.count == 2 {

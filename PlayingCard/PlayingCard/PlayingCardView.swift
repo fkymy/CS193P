@@ -10,12 +10,9 @@ import UIKit
 
 @IBDesignable
 class PlayingCardView: UIView {
-    @IBInspectable
-    var rank: Int = 11 { didSet { setNeedsDisplay(); setNeedsLayout() } }
-    @IBInspectable
-    var suit: String = "♠️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
-    @IBInspectable
-    var isFaceUp = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable var rank: Int = 11 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable var suit: String = "♠️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable var isFaceUp = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
     var faceCardScale: CGFloat = SizeRatio.faceCardImageSizeToBoundsSize { didSet { setNeedsDisplay() } }
     
