@@ -15,6 +15,8 @@
 		D9A897662043FB5500C8AFB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A897642043FB5500C8AFB4 /* LaunchScreen.storyboard */; };
 		D9A8976F2043FC0100C8AFB4 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8976E2043FC0100C8AFB4 /* PlayingCard.swift */; };
 		D9A897712043FF0C00C8AFB4 /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A897702043FF0C00C8AFB4 /* PlayingCardDeck.swift */; };
+		D9BB69C82062289E009946F7 /* CardBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB69C72062289E009946F7 /* CardBehavior.swift */; };
+		D9BB69CA20623322009946F7 /* PlayingCardViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB69C920623322009946F7 /* PlayingCardViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		D9A897672043FB5500C8AFB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A8976E2043FC0100C8AFB4 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		D9A897702043FF0C00C8AFB4 /* PlayingCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardDeck.swift; sourceTree = "<group>"; };
+		D9BB69C72062289E009946F7 /* CardBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBehavior.swift; sourceTree = "<group>"; };
+		D9BB69C920623322009946F7 /* PlayingCardViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				D9A8975D2043FB5500C8AFB4 /* ViewController.swift */,
+				D9BB69C72062289E009946F7 /* CardBehavior.swift */,
 				D9734240205961F700361297 /* PlayingCardView.swift */,
+				D9BB69C920623322009946F7 /* PlayingCardViewExtension.swift */,
 				D9A8975F2043FB5500C8AFB4 /* Main.storyboard */,
 				D9A8976E2043FC0100C8AFB4 /* PlayingCard.swift */,
 				D9A897702043FF0C00C8AFB4 /* PlayingCardDeck.swift */,
@@ -156,8 +162,10 @@
 				D9A8975E2043FB5500C8AFB4 /* ViewController.swift in Sources */,
 				D9A897712043FF0C00C8AFB4 /* PlayingCardDeck.swift in Sources */,
 				D9A8976F2043FC0100C8AFB4 /* PlayingCard.swift in Sources */,
+				D9BB69CA20623322009946F7 /* PlayingCardViewExtension.swift in Sources */,
 				D9734241205961F700361297 /* PlayingCardView.swift in Sources */,
 				D9A8975C2043FB5400C8AFB4 /* AppDelegate.swift in Sources */,
+				D9BB69C82062289E009946F7 /* CardBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

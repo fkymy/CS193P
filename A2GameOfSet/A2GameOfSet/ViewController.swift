@@ -13,9 +13,8 @@ class ViewController: UIViewController {
     private var game: GameOfSet! {
         didSet {
             let cardsOnTable = game.cardsDealt
-            cardsOnTable.indices.forEach {
-                cardButtons[$0].card = cardsOnTable[$0]
-            }
+            cardsOnTable.indices.forEach { cardButtons[$0].card = cardsOnTable[$0] }
+            hints.cards = game.hints
         }
     }
 
@@ -63,6 +62,7 @@ class ViewController: UIViewController {
         buttons.forEach { $0.card = nil } // for when draw []
         
         let newCards = game.drawCards()
+        hints.cards = game.hints
         for index in newCards.indices {
             let slot = buttons[index]
             slot.card = newCards[index]
@@ -107,6 +107,7 @@ class ViewController: UIViewController {
             let openSlotCount = cardButtons.count - game.cardsDealt.count
             if openSlotCount >= 3 {
                 let newCards = game.drawCards()
+                hints.cards = game.hints
                 var openSlots: [CardButton] = cardButtons.filter { $0.card == nil }
                 for index in newCards.indices {
                     let cardButton = openSlots[index]
@@ -118,18 +119,26 @@ class ViewController: UIViewController {
         updateViewLabels()
     }
     
+    private var hints: (cards: [[Card]], index: Int) = ([[]], 0) {
+        didSet {
+            if hints.index == oldValue.index {
+                hints.index = 0
+            }
+        }
+    }
+    
     @IBAction func onHintButton(_ sender: UIButton) {
         let previousCardButtonsSelected = cardButtonsSelected
         let cards = previousCardButtonsSelected.map { $0.card! }
-        let hints = game.hints
-        if let hint = hints.first {
-            let cardButtonsWithSet = buttonsFor(cards: hint)
-            if game.isSet(cards: cards) {
-                if Set(hint).union(cards).count != 0 { return }
-            }
-            
-            cardButtonsWithSet.forEach { $0.selectState = .hinted }
+        let hint = hints.cards[hints.index]
+        hints.index = hints.index < hints.cards.count - 1 ? hints.index + 1 : 0
+        
+        let cardButtonsWithSet = buttonsFor(cards: hint)
+        if game.isSet(cards: cards) {
+            if Set(hint).union(cards).count != 0 { return }
         }
+
+        cardButtonsWithSet.forEach { $0.selectState = .hinted }
     }
     
     private func buttonsFor(cards: [Card]) -> [CardButton] {
@@ -141,7 +150,6 @@ class ViewController: UIViewController {
         }
         return buttons
     }
-
 }
 
 struct ModelToView {
