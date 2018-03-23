@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="A3GraphicalSet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SLf-Kf-vvj">
+                                <rect key="frame" x="16" y="20" width="343" height="631"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-T5-b6M">
+                                        <rect key="frame" x="20" y="0.0" width="303" height="30.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byn-iy-cu4">
+                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="30.5"/>
+                                                <state key="normal" title="New"/>
+                                                <connections>
+                                                    <action selector="onNewGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5cW-wa-JCg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lra-Zq-tqd">
+                                                <rect key="frame" x="103.5" y="0.0" width="96" height="30.5"/>
+                                                <state key="normal" title="Hint"/>
+                                                <connections>
+                                                    <action selector="onHintButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GH2-xO-FgF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pg7-Nd-Jzl">
+                                                <rect key="frame" x="207.5" y="0.0" width="95.5" height="30.5"/>
+                                                <state key="normal" title="Draw"/>
+                                                <connections>
+                                                    <action selector="onDrawCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SAX-eF-0Sl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yz-Xx-XQj" customClass="BoardView" customModule="A3GraphicalSet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="38.5" width="343" height="558"/>
+                                        <color key="backgroundColor" red="0.96840423345565796" green="0.98051208257675171" blue="0.91369360685348511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oiz-br-aeX">
+                                        <rect key="frame" x="20" y="604.5" width="303" height="26.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deck: 81" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-a7-m97">
+                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXf-VM-V67">
+                                                <rect key="frame" x="155.5" y="0.0" width="147.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VOo-T5-b6M" firstAttribute="leading" secondItem="SLf-Kf-vvj" secondAttribute="leading" constant="20" symbolic="YES" id="45W-gE-Hvt"/>
+                                    <constraint firstItem="oiz-br-aeX" firstAttribute="leading" secondItem="SLf-Kf-vvj" secondAttribute="leading" constant="20" symbolic="YES" id="UPe-eT-JQc"/>
+                                    <constraint firstItem="4yz-Xx-XQj" firstAttribute="leading" secondItem="SLf-Kf-vvj" secondAttribute="leading" id="eeF-mS-6ed"/>
+                                    <constraint firstAttribute="trailing" secondItem="VOo-T5-b6M" secondAttribute="trailing" constant="20" symbolic="YES" id="njk-hI-CnY"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SLf-Kf-vvj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8KO-BC-cr7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SLf-Kf-vvj" secondAttribute="bottom" constant="16.5" id="EIn-95-dG4"/>
+                            <constraint firstItem="SLf-Kf-vvj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SvT-T2-FLe"/>
+                            <constraint firstItem="SLf-Kf-vvj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cKk-Uc-C19"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="boardView" destination="4yz-Xx-XQj" id="rje-Tv-ipd"/>
+                        <outlet property="deckCountLabel" destination="QZb-a7-m97" id="Jwl-0B-7ix"/>
+                        <outlet property="drawCardsButton" destination="pg7-Nd-Jzl" id="76d-89-t3G"/>
+                        <outlet property="hintButton" destination="lra-Zq-tqd" id="UmF-Fa-Bqu"/>
+                        <outlet property="newGameButton" destination="byn-iy-cu4" id="Pkk-am-2eQ"/>
+                        <outlet property="scoreLabel" destination="dXf-VM-V67" id="MMx-PC-elC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

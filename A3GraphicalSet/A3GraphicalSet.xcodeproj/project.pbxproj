@@ -15,6 +15,10 @@
 		D92F9A662064FBBE0065A46E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F9A652064FBBE0065A46E /* Card.swift */; };
 		D92F9A682064FBC50065A46E /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F9A672064FBC50065A46E /* Deck.swift */; };
 		D92F9A6A2064FBD20065A46E /* GameOfSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F9A692064FBD20065A46E /* GameOfSet.swift */; };
+		D92F9A6E2064FCC40065A46E /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F9A6D2064FCC40065A46E /* Grid.swift */; };
+		D92F9A70206507C90065A46E /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F9A6F206507C90065A46E /* BoardView.swift */; };
+		D92F9A7220650D170065A46E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F9A7120650D170065A46E /* CardView.swift */; };
+		D92F9A74206510DF0065A46E /* aspectRatioGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F9A73206510DF0065A46E /* aspectRatioGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		D92F9A652064FBBE0065A46E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D92F9A672064FBC50065A46E /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		D92F9A692064FBD20065A46E /* GameOfSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfSet.swift; sourceTree = "<group>"; };
+		D92F9A6D2064FCC40065A46E /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		D92F9A6F206507C90065A46E /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		D92F9A7120650D170065A46E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D92F9A73206510DF0065A46E /* aspectRatioGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aspectRatioGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +68,29 @@
 		D92F9A522064FA010065A46E /* A3GraphicalSet */ = {
 			isa = PBXGroup;
 			children = (
-				D92F9A532064FA010065A46E /* AppDelegate.swift */,
-				D92F9A552064FA010065A46E /* ViewController.swift */,
-				D92F9A652064FBBE0065A46E /* Card.swift */,
-				D92F9A672064FBC50065A46E /* Deck.swift */,
-				D92F9A692064FBD20065A46E /* GameOfSet.swift */,
 				D92F9A572064FA010065A46E /* Main.storyboard */,
+				D92F9A7120650D170065A46E /* CardView.swift */,
+				D92F9A73206510DF0065A46E /* aspectRatioGrid.swift */,
+				D92F9A6F206507C90065A46E /* BoardView.swift */,
+				D92F9A6D2064FCC40065A46E /* Grid.swift */,
+				D92F9A552064FA010065A46E /* ViewController.swift */,
+				D92F9A692064FBD20065A46E /* GameOfSet.swift */,
+				D92F9A672064FBC50065A46E /* Deck.swift */,
+				D92F9A652064FBBE0065A46E /* Card.swift */,
 				D92F9A5A2064FA010065A46E /* Assets.xcassets */,
-				D92F9A5C2064FA010065A46E /* LaunchScreen.storyboard */,
+				D92F9A6C2064FCA60065A46E /* Supporting Files */,
 				D92F9A5F2064FA010065A46E /* Info.plist */,
 			);
 			path = A3GraphicalSet;
+			sourceTree = "<group>";
+		};
+		D92F9A6C2064FCA60065A46E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D92F9A532064FA010065A46E /* AppDelegate.swift */,
+				D92F9A5C2064FA010065A46E /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,11 +165,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92F9A70206507C90065A46E /* BoardView.swift in Sources */,
 				D92F9A6A2064FBD20065A46E /* GameOfSet.swift in Sources */,
 				D92F9A682064FBC50065A46E /* Deck.swift in Sources */,
 				D92F9A562064FA010065A46E /* ViewController.swift in Sources */,
 				D92F9A662064FBBE0065A46E /* Card.swift in Sources */,
+				D92F9A74206510DF0065A46E /* aspectRatioGrid.swift in Sources */,
 				D92F9A542064FA010065A46E /* AppDelegate.swift in Sources */,
+				D92F9A7220650D170065A46E /* CardView.swift in Sources */,
+				D92F9A6E2064FCC40065A46E /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,31 +37,32 @@ struct Card: Equatable, Hashable, CustomStringConvertible {
         self.color = Color(rawValue: color)!
     }
     
-    enum Number: Int {
-        case one = 1
-        case two
-        case three
-    }
-    
-    enum Symbol: Int {
-        case diamond = 1
-        case squiggle
-        case oval
-    }
-    
-    enum Shading: Int {
-        case solid = 1
-        case striped
-        case open
-    }
-    
-    enum Color: Int {
-        case red = 1
-        case green
-        case purple
-    }
-    
     var description: String {
         return "Card \(hashValue): \(number), \(symbol), \(shading), \(color)"
     }
 }
+
+enum Number: Int {
+    case one = 1
+    case two
+    case three
+}
+
+enum Symbol: Int {
+    case diamond = 1
+    case squiggle
+    case oval
+}
+
+enum Shading: Int {
+    case solid = 1
+    case striped
+    case open
+}
+
+enum Color: Int {
+    case red = 1
+    case green
+    case purple
+}
+

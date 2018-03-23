@@ -15,6 +15,7 @@ class GameOfSet {
     lazy var cardsDealt: [Card] = deck.draw(n: .twelve) ?? []
     var cardsTaken: [Card] = []
     
+    var score: Int = 0
     var deckCount: Int { return deck.count }
     
     func isSet(cards: [Card]) -> Bool {
@@ -32,18 +33,31 @@ class GameOfSet {
         return sumMatrix.reduce(true, { $0 && ($1 % 3 == 0) })
     }
     
-    func drawCards() -> [Card] {
-        let cards = deck.draw(n: .three) ?? []
-        cardsDealt += cards
-        return cards
+    func drawCards() -> [Card]? {
+        if let cards = deck.draw(n: .three) {
+            cardsDealt += cards
+            return cards
+        }
+        return nil
     }
     
-    func removeCardsFromTable(cards: [Card]) {
-        guard isSet(cards: cards) else { return }
-        for index in cards.indices {
-            let cardFromTable = cardsDealt.remove(at: index)
-            cardsTaken.append(cardFromTable)
+    // func removeCardsFromTable(cards: [Card]) {
+    //     guard isSet(cards: cards) else { return }
+    //     for index in cards.indices {
+    //         let cardFromTable = cardsDealt.remove(at: index)
+    //         cardsTaken.append(cardFromTable)
+    //     }
+    // }
+    func ifSetThenRemoveFromTable(cards: [Card]) -> Bool {
+        guard isSet(cards: cards) else { return false }
+        for card in cards {
+            if let index = cardsDealt.index(of: card) {
+                let cardTaken = cardsDealt.remove(at: index)
+                cardsTaken.append(cardTaken)
+            }
         }
+        score += 3
+        return true
     }
     
     var hints: [[Card]] {
