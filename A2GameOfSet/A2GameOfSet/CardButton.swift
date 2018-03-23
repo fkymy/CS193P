@@ -43,6 +43,7 @@ class CardButton: UIButton {
         case unselected
         case selected
         case selectedAndMatched
+        case hinted
     }
     
     var selectState: SelectState = .unselected {
@@ -57,6 +58,9 @@ class CardButton: UIButton {
             case .selectedAndMatched:
                 layer.borderWidth = LayOutMetricsForCardView.borderWidthMatched
                 layer.borderColor = LayOutMetricsForCardView.borderColorMatched
+            case .hinted:
+                layer.borderWidth = LayOutMetricsForCardView.borderWidthHinted
+                layer.borderColor = LayOutMetricsForCardView.borderColorHinted
             }
         }
     }

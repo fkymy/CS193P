@@ -20,10 +20,19 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet var cardButtons: [CardButton]!
-    @IBOutlet weak var drawCardButton: UIButton!
-    @IBOutlet weak var newGameButton: UIButton!
+    
+    @IBOutlet weak var newGameButton: UIButton! { didSet { layoutFor(newGameButton) } }
+    @IBOutlet weak var drawCardButton: UIButton! { didSet { layoutFor(drawCardButton) } }
+    @IBOutlet weak var hintButton: UIButton! { didSet { layoutFor(hintButton) } }
     @IBOutlet weak var setsFoundLabel: UILabel!
     @IBOutlet weak var cardsInDeckLabel: UILabel!
+    
+    func layoutFor(_ view: UIView) {
+        view.layer.cornerRadius = LayOutMetricsForCardView.cornerRadius
+        view.layer.borderWidth = LayOutMetricsForCardView.borderWidthDrawButton
+        view.layer.borderColor = LayOutMetricsForCardView.borderColorDrawButton
+        view.clipsToBounds = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,40 +42,52 @@ class ViewController: UIViewController {
     private func startNewGame() {
         cardButtons.forEach { $0.card = nil }
         game = GameOfSet()
+        updateViewLabels()
     }
+    
+    private func updateViewLabels() {
+        setsFoundLabel.text = "Sets found: \(game.cardsTaken.count / 3)"
+        cardsInDeckLabel.text = "Cards in deck: \(game.deckCount)"
+    }
+    
     
     private var cardButtonsSelected: [CardButton] {
         return cardButtons.filter { cardButton in
             cardButton.selectState == .selected || cardButton.selectState == .selectedAndMatched
         }
     }
+    
+    private func removeAndDraw(cards: [Card]) {
+        game.removeCardsFromTable(cards: cards)
+        var buttons = buttonsFor(cards: cards)
+        buttons.forEach { $0.card = nil } // for when draw []
+        
+        let newCards = game.drawCards()
+        for index in newCards.indices {
+            let slot = buttons[index]
+            slot.card = newCards[index]
+        }
+        buttons.forEach { $0.selectState = .unselected }
+    }
 
-    // TODO: clean up
     @IBAction func onCardButton(_ sender: CardButton) {
         guard sender.card != nil else { return }
         
-        var previousCardButtonsSelected = cardButtonsSelected
+        let previousCardButtonsSelected = cardButtonsSelected
         if previousCardButtonsSelected.count == 3 {
             let cards = previousCardButtonsSelected.filter { $0.card != nil }.map { $0.card! }
-            if cards.count == 3 && game.isSet(cards: cards) {
-                game.removeCardsFromTable(cards: cards)
-                previousCardButtonsSelected.forEach { $0.card = nil } // for when draw []
-
-                let newCards = game.drawCards()
-                for index in newCards.indices {
-                    let slot = previousCardButtonsSelected[index]
-                    slot.card = newCards[index]
-                }
-                previousCardButtonsSelected.forEach { $0.selectState = .unselected }
+            if  game.isSet(cards: cards) {
+                removeAndDraw(cards: cards)
             } else {
                 previousCardButtonsSelected.forEach { $0.selectState = .unselected }
             }
         }
         
-        sender.selectState = sender.selectState == .unselected ? .selected : .unselected
+        sender.selectState = sender.selectState == .unselected || sender.selectState == .hinted ? .selected : .unselected
+        
         if cardButtonsSelected.count == 3 {
             let cards = cardButtonsSelected.filter { $0.card != nil }.map { $0.card! }
-            if cards.count == 3 && game.isSet(cards: cards) {
+            if game.isSet(cards: cards) {
                 cardButtonsSelected.forEach { $0.selectState = .selectedAndMatched }
             }
         }
@@ -77,20 +98,11 @@ class ViewController: UIViewController {
         startNewGame()
     }
     
-    // TODO: clean up
     @IBAction func onDrawCardsButton(_ sender: UIButton) {
-        var previousCardButtonsSelected = cardButtonsSelected
+        let previousCardButtonsSelected = cardButtonsSelected
         let cards = previousCardButtonsSelected.map { $0.card! }
-        if cards.count == 3 && game.isSet(cards: cards) {
-            game.removeCardsFromTable(cards: cards)
-            previousCardButtonsSelected.forEach { $0.card = nil }
-            
-            let newCards = game.drawCards()
-            for index in newCards.indices {
-                let slot = previousCardButtonsSelected[index]
-                slot.card = newCards[index]
-            }
-            previousCardButtonsSelected.forEach { $0.selectState = .unselected }
+        if  game.isSet(cards: cards) {
+            removeAndDraw(cards: cards)
         } else {
             let openSlotCount = cardButtons.count - game.cardsDealt.count
             if openSlotCount >= 3 {
@@ -105,11 +117,31 @@ class ViewController: UIViewController {
         
         updateViewLabels()
     }
-
-    func updateViewLabels() {
-        setsFoundLabel.text = "Sets found: \(game.cardsTaken.count / 3)"
-        cardsInDeckLabel.text = "Cards in deck: \(game.deckCount)"
+    
+    @IBAction func onHintButton(_ sender: UIButton) {
+        let previousCardButtonsSelected = cardButtonsSelected
+        let cards = previousCardButtonsSelected.map { $0.card! }
+        let hints = game.hints
+        if let hint = hints.first {
+            let cardButtonsWithSet = buttonsFor(cards: hint)
+            if game.isSet(cards: cards) {
+                if Set(hint).union(cards).count != 0 { return }
+            }
+            
+            cardButtonsWithSet.forEach { $0.selectState = .hinted }
+        }
     }
+    
+    private func buttonsFor(cards: [Card]) -> [CardButton] {
+        var buttons: [CardButton] = []
+        for card in cards {
+            if let button = (cardButtons.filter { $0.card == card }).first {
+                buttons.append(button)
+            }
+        }
+        return buttons
+    }
+
 }
 
 struct ModelToView {
