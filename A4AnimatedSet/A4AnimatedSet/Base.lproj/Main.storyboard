@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MSI-GO-UJb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Set View Controller-->
+        <scene sceneID="r6K-Cp-60e">
+            <objects>
+                <viewController id="MSI-GO-UJb" customClass="SetViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P7w-ec-ZGD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DXp-ll-OMk">
+                                <rect key="frame" x="16" y="590" width="343" height="77"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-XC-p7w">
+                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="77"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKq-gJ-rpb">
+                                                <rect key="frame" x="0.0" y="0.0" width="113.5" height="38"/>
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="Hint">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onHintButton:" destination="MSI-GO-UJb" eventType="touchUpInside" id="4Ck-b7-XD2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcT-KR-pdK">
+                                                <rect key="frame" x="0.0" y="39" width="113.5" height="38"/>
+                                                <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="NewGame">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onNewGameButton:" destination="MSI-GO-UJb" eventType="touchUpInside" id="gNE-as-OfG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMt-rR-ZQr">
+                                        <rect key="frame" x="114.5" y="0.0" width="114" height="77"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGT-XZ-M9M">
+                                        <rect key="frame" x="229.5" y="0.0" width="113.5" height="77"/>
+                                        <color key="backgroundColor" red="0.96457725763320923" green="0.54976266622543335" blue="0.58704835176467896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Draw">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onDrawButton:" destination="MSI-GO-UJb" eventType="touchUpInside" id="m4d-zm-LwU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8M-1y-mqf" customClass="GameOfSetView" customModule="A4AnimatedSet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="570"/>
+                                <color key="backgroundColor" red="0.96840423345565796" green="0.98051208257675171" blue="0.91369360685348511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DXp-ll-OMk" firstAttribute="leading" secondItem="kmf-PI-ddr" secondAttribute="leading" constant="16" id="3Wb-ot-L2d"/>
+                            <constraint firstItem="H8M-1y-mqf" firstAttribute="top" secondItem="kmf-PI-ddr" secondAttribute="top" id="4o2-UA-M9r"/>
+                            <constraint firstItem="H8M-1y-mqf" firstAttribute="leading" secondItem="kmf-PI-ddr" secondAttribute="leading" id="dW8-0a-oMA"/>
+                            <constraint firstItem="H8M-1y-mqf" firstAttribute="trailing" secondItem="kmf-PI-ddr" secondAttribute="trailing" id="l02-6J-ftY"/>
+                            <constraint firstItem="kmf-PI-ddr" firstAttribute="bottom" secondItem="DXp-ll-OMk" secondAttribute="bottom" id="nx2-Hm-pCX"/>
+                            <constraint firstItem="DXp-ll-OMk" firstAttribute="top" secondItem="H8M-1y-mqf" secondAttribute="bottom" id="sxe-FQ-7T1"/>
+                            <constraint firstItem="kmf-PI-ddr" firstAttribute="trailing" secondItem="DXp-ll-OMk" secondAttribute="trailing" constant="16" id="tE9-uf-p6l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kmf-PI-ddr"/>
+                    </view>
+                    <connections>
+                        <outlet property="drawButton" destination="dGT-XZ-M9M" id="cag-pV-U9o"/>
+                        <outlet property="gameOfSetView" destination="H8M-1y-mqf" id="PQM-Ov-p4I"/>
+                        <outlet property="hintButton" destination="eKq-gJ-rpb" id="WKq-Pt-6jV"/>
+                        <outlet property="moreThreeButton" destination="dGT-XZ-M9M" id="j9n-mX-ERu"/>
+                        <outlet property="newGameButton" destination="rcT-KR-pdK" id="LBX-Mq-Ree"/>
+                        <outlet property="scorceLabel" destination="SMt-rR-ZQr" id="Kyj-SU-uCA"/>
+                        <outlet property="scoreLabel" destination="SMt-rR-ZQr" id="AB5-ZU-03m"/>
+                        <outlet property="setView" destination="H8M-1y-mqf" id="bGX-An-g7f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48g-Rp-iWL" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-124" y="63"/>
+        </scene>
+    </scenes>
+</document>
