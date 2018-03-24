@@ -27,6 +27,7 @@ class ConcentrationThemeChooserViewController: UIViewController, UISplitViewCont
     // delegate used, since startup scene becomes the detail view on sm screens
     // we need to tell the splitViewController not to collapse, unless a game was being played
     override func awakeFromNib() {
+        super.awakeFromNib()
         splitViewController?.delegate = self
     }
     
