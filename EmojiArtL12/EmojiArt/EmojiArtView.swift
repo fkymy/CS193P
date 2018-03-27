@@ -2,13 +2,12 @@
 //  EmojiArtView.swift
 //  EmojiArt
 //
-//  Created by Yuske Fukuyama on 2018/03/24.
-//  Copyright © 2018 Yuske Fukuyama. All rights reserved.
-//
 
 import UIKit
 
 class EmojiArtView: UIView, UIDropInteractionDelegate {
+
+    // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +23,8 @@ class EmojiArtView: UIView, UIDropInteractionDelegate {
         addInteraction(UIDropInteraction(delegate: self))
     }
     
+    // MARK: - UIDropInteractionDelegate
+   
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
         return session.canLoadObjects(ofClass: NSAttributedString.self)
     }
@@ -40,21 +41,22 @@ class EmojiArtView: UIView, UIDropInteractionDelegate {
             }
         }
     }
-    
+        
     private func addLabel(with attributedString: NSAttributedString, centeredAt point: CGPoint) {
         let label = UILabel()
         label.backgroundColor = .clear
         label.attributedText = attributedString
         label.sizeToFit()
         label.center = point
+        addEmojiArtGestureRecognizers(to: label)
         addSubview(label)
     }
     
+    // MARK: - Drawing the Background
     
-    var backgroundImage: UIImage? { didSet { setNeedsDisplay() } }
+    var backgroundImage: UIImage? { didSet{ setNeedsDisplay() } }
 
     override func draw(_ rect: CGRect) {
         backgroundImage?.draw(in: bounds)
     }
-
 }
