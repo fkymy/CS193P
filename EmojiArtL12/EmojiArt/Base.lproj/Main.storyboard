@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HoL-L2-PXS">
-    <device id="ipad10_5" orientation="portrait">
+    <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,14 +21,14 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTh-yl-85n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1183" y="-799"/>
+            <point key="canvasLocation" x="-1038" y="-1110"/>
         </scene>
         <!--Emoji Art Document Table View Controller-->
         <scene sceneID="74U-uZ-NHS">
             <objects>
                 <tableViewController id="Oic-Bn-HX1" customClass="EmojiArtDocumentTableViewController" customModule="EmojiArt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dRM-8m-Vc8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -69,21 +69,22 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ef-Km-cWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="525" y="-1176"/>
+            <point key="canvasLocation" x="-32" y="-348"/>
         </scene>
         <!--Emoji Art View Controller-->
         <scene sceneID="Tpt-RH-Xke">
             <objects>
                 <viewController id="Cof-xh-vjY" customClass="EmojiArtViewController" customModule="EmojiArt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GS2-ss-5cP">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="791.5" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpU-P8-Vvb">
-                                <rect key="frame" x="0.0" y="108" width="834" height="1004"/>
+                                <rect key="frame" x="0.0" y="108" width="791.5" height="726"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObU-6J-H3X">
-                                        <rect key="frame" x="0.0" y="0.0" width="834" height="1004"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="791.5" height="726"/>
+                                        <color key="backgroundColor" red="0.96457725763320923" green="0.54976266622543335" blue="0.58704835176467896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="250" constant="834" id="byS-1W-MZW"/>
                                             <constraint firstAttribute="height" priority="250" constant="1092" id="gb9-5T-Vf3"/>
@@ -101,7 +102,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QJC-bY-xL8">
-                                <rect key="frame" x="0.0" y="20" width="834" height="80"/>
+                                <rect key="frame" x="0.0" y="20" width="791.5" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="mSp-YI-erq"/>
@@ -143,8 +144,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="V4I-ow-bLg">
-                                                    <rect key="frame" x="30" y="30" width="20" height="20"/>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V4I-ow-bLg">
+                                                    <rect key="frame" x="22" y="22" width="37" height="37"/>
+                                                    <color key="color" red="0.96622139220000003" green="0.39918008449999998" blue="0.41201713680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                         </view>
@@ -152,6 +154,52 @@
                                             <constraint firstItem="V4I-ow-bLg" firstAttribute="centerX" secondItem="pZB-x1-XvX" secondAttribute="centerX" id="ANA-zC-Ktx"/>
                                             <constraint firstItem="V4I-ow-bLg" firstAttribute="centerY" secondItem="pZB-x1-XvX" secondAttribute="centerY" id="Yze-YH-Cdc"/>
                                         </constraints>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddEmojiButtonCell" id="G07-w6-bcY">
+                                        <rect key="frame" x="180" y="0.0" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUC-AM-aTW">
+                                                    <rect key="frame" x="20.5" y="-4.5" width="39" height="89"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="addEmoji" destination="Cof-xh-vjY" eventType="touchUpInside" id="VQD-t3-BWZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="UUC-AM-aTW" firstAttribute="centerX" secondItem="G07-w6-bcY" secondAttribute="centerX" id="nPh-X8-W6l"/>
+                                            <constraint firstItem="UUC-AM-aTW" firstAttribute="centerY" secondItem="G07-w6-bcY" secondAttribute="centerY" id="zT9-2F-y0a"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EmojiInputCell" id="bzJ-C3-2Z3" customClass="TextFieldCollectionViewCell" customModule="EmojiArt" customModuleProvider="target">
+                                        <rect key="frame" x="270" y="0.0" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kZW-t5-SRD">
+                                                    <rect key="frame" x="8" y="-1" width="64" height="81"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="kZW-t5-SRD" firstAttribute="centerY" secondItem="bzJ-C3-2Z3" secondAttribute="centerY" id="Qty-f2-7Fk"/>
+                                            <constraint firstItem="kZW-t5-SRD" firstAttribute="leading" secondItem="bzJ-C3-2Z3" secondAttribute="leading" constant="8" id="ss6-Wn-DZc"/>
+                                            <constraint firstAttribute="trailing" secondItem="kZW-t5-SRD" secondAttribute="trailing" constant="8" id="sso-j5-zlW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="textField" destination="kZW-t5-SRD" id="MlI-Zh-3sl"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -178,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJb-Na-VXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-732" y="-348"/>
+            <point key="canvasLocation" x="-732.19424460431662" y="-348.20143884892087"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fSU-cQ-421">
