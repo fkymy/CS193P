@@ -83,7 +83,6 @@ extension URL {
                     }
                 }
             }
-            print("returning URL.baseURL")
             return self.baseURL ?? self
         }
     }

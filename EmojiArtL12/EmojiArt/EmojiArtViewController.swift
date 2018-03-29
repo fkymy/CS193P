@@ -10,6 +10,10 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
     @IBOutlet weak var dropZone: UIView! {
         didSet {
             dropZone.addInteraction(UIDropInteraction(delegate: self))
+            // func customEnableDropping(on view: UIView, dropInteractionDelegate: UIDropInteractionDelegate) {
+            //     let dropInteraction = UIDropInteraction(delegate: dropInteractionDelegate)
+            //     view.addInteraction(dropInteraction)
+            // }
         }
     }
     
@@ -43,6 +47,7 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
             let size = newValue?.size ?? CGSize.zero
             emojiArtView.frame = CGRect(origin: CGPoint.zero, size: size)
             scrollView?.contentSize = size
+            // initial zoom
             scrollViewHeight?.constant = size.height
             scrollViewWidth?.constant = size.width
             if let dropZone = self.dropZone, size.width > 0, size.height > 0 {
@@ -105,7 +110,7 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
         } else if addingEmoji {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiInputCell", for: indexPath)
             if let inputCell = cell as? TextFieldCollectionViewCell {
-                // text field cell has a closure that is called when
+                // text field cell has a closure that is called when user end editing
                 // there is a memory cycle, as self points to vc, vc points to collection view,
                 // collection view points to its cells, and its cell points to this closure.
                 // there is another for inputCell, as we're using it inside the closure which will capture it,
@@ -213,7 +218,6 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
                         }
                     }
                 }
-                
             }
         }
     }
@@ -231,6 +235,7 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
     var imageFetcher: ImageFetcher!
     
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        // consume drag items
         imageFetcher = ImageFetcher() { (url, image) in
             DispatchQueue.main.async {
                 self.emojiArtBackgroundImage = image
