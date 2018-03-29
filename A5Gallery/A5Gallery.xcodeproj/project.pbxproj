@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		D987E115206CB8A0003DC8F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E114206CB8A0003DC8F3 /* AppDelegate.swift */; };
-		D987E117206CB8A0003DC8F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E116206CB8A0003DC8F3 /* ViewController.swift */; };
 		D987E11A206CB8A0003DC8F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D987E118206CB8A0003DC8F3 /* Main.storyboard */; };
 		D987E11C206CB8A0003DC8F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D987E11B206CB8A0003DC8F3 /* Assets.xcassets */; };
 		D987E11F206CB8A0003DC8F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D987E11D206CB8A0003DC8F3 /* LaunchScreen.storyboard */; };
+		D987E128206CC34C003DC8F3 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E127206CC34C003DC8F3 /* Gallery.swift */; };
+		D987E12A206CCE08003DC8F3 /* GalleryImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E129206CCE08003DC8F3 /* GalleryImageViewController.swift */; };
+		D987E12C206CCF69003DC8F3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E12B206CCF69003DC8F3 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D987E111206CB8A0003DC8F3 /* A5Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A5Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D987E114206CB8A0003DC8F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D987E116206CB8A0003DC8F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D987E119206CB8A0003DC8F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D987E11B206CB8A0003DC8F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D987E11E206CB8A0003DC8F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D987E120206CB8A0003DC8F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D987E127206CC34C003DC8F3 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
+		D987E129206CCE08003DC8F3 /* GalleryImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageViewController.swift; sourceTree = "<group>"; };
+		D987E12B206CCF69003DC8F3 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				D987E126206CB916003DC8F3 /* Supporting Files */,
-				D987E116206CB8A0003DC8F3 /* ViewController.swift */,
 				D987E118206CB8A0003DC8F3 /* Main.storyboard */,
+				D987E129206CCE08003DC8F3 /* GalleryImageViewController.swift */,
+				D987E12B206CCF69003DC8F3 /* Utilities.swift */,
+				D987E127206CC34C003DC8F3 /* Gallery.swift */,
 				D987E11B206CB8A0003DC8F3 /* Assets.xcassets */,
 				D987E120206CB8A0003DC8F3 /* Info.plist */,
 			);
@@ -144,8 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D987E117206CB8A0003DC8F3 /* ViewController.swift in Sources */,
+				D987E128206CC34C003DC8F3 /* Gallery.swift in Sources */,
 				D987E115206CB8A0003DC8F3 /* AppDelegate.swift in Sources */,
+				D987E12C206CCF69003DC8F3 /* Utilities.swift in Sources */,
+				D987E12A206CCE08003DC8F3 /* GalleryImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
