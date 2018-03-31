@@ -64,7 +64,7 @@ class GalleryImageViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
-    // MARK: - Outlets
+    // MARK: Outlets
     
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollViewWidth: NSLayoutConstraint!
@@ -80,7 +80,7 @@ class GalleryImageViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    // MARK: - UIScrollViewDelegate
+    // MARK: UIScrollViewDelegate
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         scrollViewHeight.constant = scrollView.contentSize.height
@@ -91,12 +91,12 @@ class GalleryImageViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }
     
-    // MARK: - UIViewController LifeCycle
+    // MARK: UIViewController LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if imageURL == nil {
-            let data = SampleGalleryData.data
+            let data = DefaultGalleryData.data
             if let urlList = data["Powerlines"], let url = urlList.first {
                 print(url ?? "image is nil")
                 imageURL = url

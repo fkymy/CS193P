@@ -9,26 +9,73 @@
 import Foundation
 import UIKit
 
-class Gallery {
-    var name = String()
-    var images = [Image]()
+class Gallery: CustomStringConvertible {
+    var name: String
+    var images: [GalleryImage]
     // private static var identifierFactory = 0
+    // var identifier = {
+    //     identifierFactory += 1
+    //     return identifierFactory
+    // }()
     
-    struct Image {
-        var url: URL?
-        weak var image: UIImage?
-        var aspectRatio: CGFloat {
-            return 0.0
+    init(name: String) {
+        self.name = name
+        self.images = []
+        if let urls = DefaultGalleryData.data[name] {
+            for url in urls {
+                self.images.append(GalleryImage(with: url))
+            }
         }
     }
     
-    func loadImages(for gallery: String) -> [Image] {
-        return []
+    var description: String {
+        var returnString = ""
+        returnString += "Gallery: \"\(self.name)\"\n"
+        for index in self.images.indices {
+            if let url = self.images[index].url {
+                returnString += "index \(index): \(String(describing: url))\n"
+            } else {
+                returnString += "index \(index): no url\n"
+            }
+        }
+        return returnString
     }
 }
 
-struct SampleGalleryData {
-    static var data: Dictionary<String,Array<URL?>> = {
+struct GalleryImage: CustomStringConvertible {
+    // GalleryImage model is essentially just a url with
+    // functionality of massaging url and calculating aspect ratios
+    
+    var url: URL?
+    weak var image: UIImage?
+    
+    var aspectRatio: CGFloat {
+        return image != nil ? image!.size.height / image!.size.width : 1.0
+    }
+    
+    init(with url: URL) {
+        self.url = url.imageURL
+    }
+    
+    mutating func fetchData() {
+        print("fetchData...")
+        if let url = url {
+            if let urlContents = try? Data(contentsOf: url) {
+                if let data = UIImage(data: urlContents) {
+                    print("data loaded...")
+                    image = data
+                }
+            }
+        }
+    }
+    
+    var description: String {
+        return "GalleryImage: \"\(String(describing: url))\", image: \(String(describing: image))\n"
+    }
+}
+
+struct DefaultGalleryData {
+    static var data: Dictionary<String,Array<URL>> = {
         let URLStrings = [
             "Animals" : [
                 "http://r.ddmcdn.com/w_830/s_f/o_1/cx_98/cy_0/cw_640/ch_360/APL/uploads/2015/07/cecil-AP463227356214-1000x400.jpg",
@@ -42,7 +89,7 @@ struct SampleGalleryData {
                 "https://thumbor.forbes.com/thumbor/960x0/smart/https%3A%2F%2Fblogs-images.forbes.com%2Fstevensalzberg%2Ffiles%2F2014%2F08%2F670px-power_lines.jpg",
                 "http://news.ufl.edu/media/newsufledu/images/2017/09/Power-Lines.jpg",
                 "https://www.fae-group.com/images/applicazioni/header/Applications_power_lines_fae.jpg",
-                "https://i.pinimg.com/736x/25/e5/a0/25e5a01fbbd8a0b78048c01c8dfe2906.jpg",
+                "https://i.pinimg.com/736x/25/e5/a0/25e5a01fbbd8a0b78048c01c8dfe2906.jpg"
             ],
             "Gophers": [
                 "https://blog.newrelic.com/wp-content/uploads/golang-gopher.jpg",
@@ -53,23 +100,26 @@ struct SampleGalleryData {
             ]
         ]
         
-        var dict = Dictionary<String,Array<URL?>>()
+        var dict = Dictionary<String,Array<URL>>()
         for (key, value) in URLStrings {
-            dict[key] = value.map { URL(string: $0) }
+            dict[key] = value.map { URL(string: $0)! }
         }
         return dict
     }()
 }
 
 
-//if let url = imageURL {
-//    spinner.startAnimating()
-//    DispatchQueue.global(qos: .userInitiated).async { [weak self] in // don't want to hold self in this closure if taken too long
-//        let urlContents = try? Data(contentsOf: url)
-//        DispatchQueue.main.async {
-//            if let imageData = urlContents, url == self?.imageURL {
-//                self?.image = UIImage(data: imageData)
-//            }
-//        }
-//    }
-//}
+extension URL {
+    var imageURL: URL {
+        for query in query?.components(separatedBy: "&") ?? [] {
+            let queryComponents = query.components(separatedBy: "=")
+            if queryComponents.count == 2 {
+                if queryComponents[0] == "imgurl", let url = URL(string: queryComponents[1].removingPercentEncoding ?? "") {
+                    return url
+                }
+            }
+        }
+        return self.baseURL ?? self
+    }
+}
+
