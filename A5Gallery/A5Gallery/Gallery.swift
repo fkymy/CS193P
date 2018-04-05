@@ -56,19 +56,7 @@ struct GalleryImage: CustomStringConvertible {
     init(with url: URL) {
         self.url = url.imageURL
     }
-    
-    mutating func fetchData() {
-        print("fetchData...")
-        if let url = url {
-            if let urlContents = try? Data(contentsOf: url) {
-                if let data = UIImage(data: urlContents) {
-                    print("data loaded...")
-                    image = data
-                }
-            }
-        }
-    }
-    
+
     var description: String {
         return "GalleryImage: \"\(String(describing: url))\", image: \(String(describing: image))\n"
     }
