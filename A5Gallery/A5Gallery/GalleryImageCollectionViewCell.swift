@@ -21,52 +21,35 @@ class GalleryImageCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    //var url: URL? {
-    //    didSet {
-    //        if url != nil && (oldValue != url) {
-    //            fetchData(imageURL: url!)
-    //        }
-    //    }
-    //}
-    
-    var galleryImage: GalleryImage? {
+    weak var errorHandler: GalleryImageErrorHandling?
+
+    var url: URL? {
         didSet {
-            // fetch data in the background if not nil
-            // set that data to galleryImage.image for aspect ratios
-            print(galleryImage!)
-            if galleryImage != nil && (galleryImage?.url != oldValue?.url) {
-                print("galleryImage != nil && (galleryImage?.url != oldValue?.url)")
-                DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                    self?.galleryImage?.fetchData()
-                    if let image = self?.galleryImage?.image {
-                        print("galleryImage?.image")
-                        DispatchQueue.main.async { self?.image = image }
+            // if url is the same as oldValue, user has returned to the previous show view
+            if (oldValue != url), let url = url {
+                fetchData(imageURL: url)
+            }
+        }
+    }
+    
+    private func fetchData(imageURL: URL) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            if let urlContents = try? Data(contentsOf: imageURL) {
+                DispatchQueue.main.async {
+                    if let image = UIImage(data: urlContents) {
+                        self?.image = image
+                        print("ImageView was set")
                     } else {
-                        // handle error
+                        self?.errorHandler?.noImageData(for: self!)
+                        print("error in let image = UIImage(data: urlContents)")
                     }
+                }
+            } else if self != nil {
+                DispatchQueue.main.async {
+                    self?.errorHandler?.noImageData(for: self!)
+                    print("error in Data(contentsOf: imageURL")
                 }
             }
         }
     }
-
-    // private func fetchData(imageURL: URL) {
-    //     print("fetchData")
-    //     DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-    //         if let urlContents = try? Data(contentsOf: imageURL) {
-    //             print("urlContents is loaded: \(String(describing: urlContents))")
-    //             DispatchQueue.main.async {
-    //                 if let image = UIImage(data: urlContents) {
-    //                     self?.image = image
-    //                     print("ImageView was set")
-    //                 } else {
-    //                     print("error in let image = UIImage(data: urlContents)")
-    //                     // handle error
-    //                 }
-    //             }
-    //         } else if self != nil {
-    //             print("error in Data(contentsOf: imageURL")
-    //             // handler error
-    //         }
-    //     }
-    // }
 }

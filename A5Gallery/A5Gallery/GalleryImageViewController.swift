@@ -10,27 +10,15 @@ import UIKit
 
 class GalleryImageViewController: UIViewController, UIScrollViewDelegate {
     
+    weak var transferedImage: UIImage?
+
     var imageView = UIImageView()
-    
-    var imageURL: URL? {
-        didSet {
-            print("imageURL didSet")
-            image = nil
-            // Somehow this didn't work..?
-            //if view.window != nil {
-            //    print("view.window is not nil")
-            //    fetchData()
-            //}
-            fetchData()
-        }
-    }
     
     private var image: UIImage? {
         get {
             return imageView.image
         }
         set {
-            print("image setting")
             scrollView?.zoomScale = 1.0
             imageView.image = newValue
             let size = newValue?.size ?? CGSize.zero
@@ -44,23 +32,6 @@ class GalleryImageViewController: UIViewController, UIScrollViewDelegate {
                 scrollView?.zoomScale = max(safeZoneBounds.width/size.width, safeZoneBounds.height/size.height)
             }
             spinner?.stopAnimating()
-        }
-    }
-    
-    private func fetchData() {
-        print("fetchData has started")
-        if let url = imageURL {
-            print("url = imageURL")
-            spinner.startAnimating()
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                let urlContent = try? Data(contentsOf: url)
-                print("urlContent is loaded: \(String(describing: urlContent!))")
-                DispatchQueue.main.async {
-                    if let imageData = urlContent, url == self?.imageURL {
-                        self?.image = UIImage(data: imageData)
-                    }
-                }
-            }
         }
     }
 
@@ -95,13 +66,7 @@ class GalleryImageViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if imageURL == nil {
-            let data = DefaultGalleryData.data
-            if let urlList = data["Powerlines"], let url = urlList.first {
-                print(url ?? "image is nil")
-                imageURL = url
-            }
-        }
+        image = transferedImage
     }
 
     override func didReceiveMemoryWarning() {
