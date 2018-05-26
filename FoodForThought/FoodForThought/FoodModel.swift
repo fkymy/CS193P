@@ -49,8 +49,8 @@ struct FoodModel {
     ]
     
     static func category(of foodName: String) -> String {
-        for category in Array(FoodModel.food.keys) {
-            if FoodModel.food[category]?.contains(foodName) ?? false {
+        for category in categories {
+            if food[category]?.contains(foodName) ?? false {
                 return category
             }
         }

@@ -8,11 +8,8 @@
 
 import Foundation
 
-// model is always ui independent
 struct PlayingCard: CustomStringConvertible {
-    var description: String {
-        return "PlayingCard: \(rank) of \(suit)"
-    }
+
     var suit: Suit
     var rank: Rank
     
@@ -60,5 +57,9 @@ struct PlayingCard: CustomStringConvertible {
             allRanks += [Rank.face("J"), .face("Q"), .face("K")]
             return allRanks
         }
+    }
+    
+    var description: String {
+        return "PlayingCard: \(rank) of \(suit)"
     }
 }

@@ -101,8 +101,6 @@ class FoodTableViewController: UITableViewController
         }    
     }
 
-    // MARK: - UITableViewDataSource
-
     // there are a number of ways to control the height of each row in a table view ...
     //
     // 1. set the height in the Attributes Inspector in the storyboard (that's how this table's heights are set)
