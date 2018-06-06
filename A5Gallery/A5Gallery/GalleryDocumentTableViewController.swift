@@ -125,6 +125,24 @@ class GalleryDocumentTableViewController: UIViewController, UITableViewDelegate,
     
     
     // MARK: - Navigation
+    
+    private var indexPathRowForSegue: Int?
 
-
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            if indexPath.section == 0 {
+                indexPathRowForSegue = indexPath.row
+                return true
+            }
+        }
+        return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dataForGalleryImageVC = segue.destination.contents as? ImageGalleryDataSource {
+            let index = indexPathRowForSegue ?? 0
+            dataForGalleryImageVC.imageGallery = activeGalleries[index]
+        }
+        indexPathRowForSegue = nil
+    }
 }
