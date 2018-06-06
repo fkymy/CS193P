@@ -37,28 +37,94 @@ class GalleryDocumentTableViewController: UIViewController, UITableViewDelegate,
         let existingNamesForGalleries: [String] = activeGalleries.map { $0.name } + recentlyDeletedGalleries.map { $0.name }
         newGallery.name = "Untitled".madeUnique(withRespectTo: existingNamesForGalleries)
         activeGalleries.append(newGallery)
-        let indexPath = IndexPath(row: activeGalleries.count-1, sections: 0)
+        let indexPath = IndexPath(row: activeGalleries.count-1, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    // MARK: TableView DataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return galleries.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return galleries[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 1 ? "Recently Deleted" : nil
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ImageGalleryNameCell", for: indexPath)
+        if let cell = cell as? GalleryDocumentTableViewCell {
+            cell.textField.text = galleries[indexPath.section][indexPath.row].name
+        }
+        return cell
+    }
+    
+    // MARK: TableView Delegate
+    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+        if let cell = tableView.cellForRow(at: indexPath) as? GalleryDocumentTableViewCell {
+            cell.textField?.resignFirstResponder()
+            cell.textField?.isUserInteractionEnabled = false
+        }
+        return indexPath
+    }
+    
+    // MARK: editing
+    
+    // conditional editing
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard indexPath.section == 1 else { return nil }
+        let restoreAction = UIContextualAction(style: .destructive, title: "Restore") { [weak self] (action: UIContextualAction, view: UIView, closure: (Bool) -> Void) in
+            if let gallery = self?.galleries[indexPath.section][indexPath.row] {
+                self?.recentlyDeletedGalleries.remove(at: indexPath.row)
+                self?.activeGalleries.insert(gallery, at: 0)
+                tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 0))
+                tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            }
+        }
+        restoreAction.backgroundColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
+        return UISwipeActionsConfiguration(actions: [restoreAction])
+    }
 
-    /*
+    // editing
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if indexPath.section == 0 {
+                let gallery = galleries[indexPath.section][indexPath.row]
+                activeGalleries.remove(at: indexPath.row)
+                recentlyDeletedGalleries += [gallery]
+                tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 1))
+            } else {
+                recentlyDeletedGalleries.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
+    
+    // reordering
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
