@@ -2,85 +2,54 @@
 //  GalleryDocumentTableViewController.swift
 //  A5Gallery
 //
-//  Created by Yuske Fukuyama on 2018/05/27.
+//  Created by Yuske Fukuyama on 2018/06/07.
 //  Copyright © 2018 Yuske Fukuyama. All rights reserved.
 //
 
 import UIKit
 
-class GalleryDocumentTableViewController: UITableViewController {
+class GalleryDocumentTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: - Galleries Model
+    
+    var activeGalleries: [Gallery] = {
+        var galleries: [Gallery] = []
+        return galleries
+    }()
+    
+    var recentlyDeletedGalleries: [Gallery] = []
+    
+    var galleries: [[Gallery]] {
+        return [activeGalleries, recentlyDeletedGalleries]
+    }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
+    
+    @IBAction func addGallery(_ sender: UIBarButtonItem) {
+        let newGallery = Gallery()
+        let existingNamesForGalleries: [String] = activeGalleries.map { $0.name } + recentlyDeletedGalleries.map { $0.name }
+        newGallery.name = "Untitled".madeUnique(withRespectTo: existingNamesForGalleries)
+        activeGalleries.append(newGallery)
+        let indexPath = IndexPath(row: activeGalleries.count-1, sections: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+    
 
     /*
     // MARK: - Navigation

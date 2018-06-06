@@ -15,8 +15,7 @@
 		D987E12A206CCE08003DC8F3 /* GalleryImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E129206CCE08003DC8F3 /* GalleryImageViewController.swift */; };
 		D987E12C206CCF69003DC8F3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E12B206CCF69003DC8F3 /* Utilities.swift */; };
 		D987E130206CFB61003DC8F3 /* GalleryImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E12F206CFB61003DC8F3 /* GalleryImageCollectionViewCell.swift */; };
-		D987E134206D15E4003DC8F3 /* GalleryImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E133206D15E4003DC8F3 /* GalleryImageCollectionViewController.swift */; };
-		D9F6EC9620B9F02300047ABD /* GalleryDocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F6EC9520B9F02300047ABD /* GalleryDocumentTableViewController.swift */; };
+		D9CDA11920C8491E00E803DA /* GalleryDocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CDA11820C8491E00E803DA /* GalleryDocumentTableViewController.swift */; };
 		D9F6EC9820B9F03600047ABD /* GalleryDocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F6EC9720B9F03600047ABD /* GalleryDocumentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +30,7 @@
 		D987E129206CCE08003DC8F3 /* GalleryImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageViewController.swift; sourceTree = "<group>"; };
 		D987E12B206CCF69003DC8F3 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D987E12F206CFB61003DC8F3 /* GalleryImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		D987E133206D15E4003DC8F3 /* GalleryImageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageCollectionViewController.swift; sourceTree = "<group>"; };
-		D9F6EC9520B9F02300047ABD /* GalleryDocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentTableViewController.swift; sourceTree = "<group>"; };
+		D9CDA11820C8491E00E803DA /* GalleryDocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentTableViewController.swift; sourceTree = "<group>"; };
 		D9F6EC9720B9F03600047ABD /* GalleryDocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,9 +66,8 @@
 			children = (
 				D987E126206CB916003DC8F3 /* Supporting Files */,
 				D987E118206CB8A0003DC8F3 /* Main.storyboard */,
-				D9F6EC9520B9F02300047ABD /* GalleryDocumentTableViewController.swift */,
+				D9CDA11820C8491E00E803DA /* GalleryDocumentTableViewController.swift */,
 				D9F6EC9720B9F03600047ABD /* GalleryDocumentTableViewCell.swift */,
-				D987E133206D15E4003DC8F3 /* GalleryImageCollectionViewController.swift */,
 				D987E12F206CFB61003DC8F3 /* GalleryImageCollectionViewCell.swift */,
 				D987E129206CCE08003DC8F3 /* GalleryImageViewController.swift */,
 				D987E127206CC34C003DC8F3 /* Gallery.swift */,
@@ -163,10 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D987E128206CC34C003DC8F3 /* Gallery.swift in Sources */,
-				D987E134206D15E4003DC8F3 /* GalleryImageCollectionViewController.swift in Sources */,
 				D987E115206CB8A0003DC8F3 /* AppDelegate.swift in Sources */,
 				D9F6EC9820B9F03600047ABD /* GalleryDocumentTableViewCell.swift in Sources */,
-				D9F6EC9620B9F02300047ABD /* GalleryDocumentTableViewController.swift in Sources */,
+				D9CDA11920C8491E00E803DA /* GalleryDocumentTableViewController.swift in Sources */,
 				D987E12C206CCF69003DC8F3 /* Utilities.swift in Sources */,
 				D987E12A206CCE08003DC8F3 /* GalleryImageViewController.swift in Sources */,
 				D987E130206CFB61003DC8F3 /* GalleryImageCollectionViewCell.swift in Sources */,
