@@ -12,14 +12,15 @@ protocol GalleryImageErrorHandling: class {
     func noImageData(for cell: UICollectionViewCell)
 }
 
-protocol ImageGalleryDataSourcing: class {
+protocol ImageGalleryDataSource: class {
     var imageGallery: Gallery { get set }
 }
 
-class GalleryImageCollectionViewController: UIViewController, ImageGalleryDataSourcing, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDragDelegate, UICollectionViewDropDelegate, GalleryImageErrorHandling {
+class GalleryImageCollectionViewController: UIViewController, ImageGalleryDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDragDelegate, UICollectionViewDropDelegate, GalleryImageErrorHandling {
 
-    // MARK: - ImageGalleryDataSourcing
+    // MARK: - ImageGalleryDataSource
 
+    // todo: make this optional
     var imageGallery: Gallery = Gallery() {
         didSet {
             collectionView?.reloadData()
@@ -197,35 +198,7 @@ class GalleryImageCollectionViewController: UIViewController, ImageGalleryDataSo
     }
     
     // MARK: UICollectionViewDelegate
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
+
     
     // MARK: - GalleryImageErrorHandling
 

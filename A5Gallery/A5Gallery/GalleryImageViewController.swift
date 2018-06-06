@@ -9,7 +9,7 @@
 import UIKit
 
 class GalleryImageViewController: UIViewController, UIScrollViewDelegate {
-    
+
     weak var transferedImage: UIImage?
 
     var imageView = UIImageView()
