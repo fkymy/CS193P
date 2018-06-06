@@ -146,3 +146,20 @@ class GalleryDocumentTableViewController: UIViewController, UITableViewDelegate,
         indexPathRowForSegue = nil
     }
 }
+
+extension GalleryDocumentTableViewController: UISplitViewControllerDelegate {
+    func targetDisplayModeForAction(in svc: UISplitViewController) -> UISplitViewControllerDisplayMode {
+        switch svc.displayMode {
+        case .allVisible: return .primaryHidden
+        case .primaryHidden: return .allVisible
+        default: return .primaryHidden
+        }
+    }
+    
+    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode) {
+        if let indexPath = tableView.indexPathForSelectedRow, let cell = tableView.cellForRow(at: indexPath) as? GalleryDocumentTableViewCell {
+            cell.textField?.resignFirstResponder()
+            cell.textField?.isUserInteractionEnabled = false
+        }
+    }
+}
