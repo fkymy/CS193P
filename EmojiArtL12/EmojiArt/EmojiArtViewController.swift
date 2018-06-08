@@ -116,6 +116,8 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
             emojiCollectionView.delegate = self
             emojiCollectionView.dragDelegate = self
             emojiCollectionView.dropDelegate = self
+            
+            emojiCollectionView.dragInteractionEnabled = true // for iphone
         }
     }
     
@@ -133,31 +135,54 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
     
     // MARK: - Persistence
     
-    @IBAction func save(_ sender: UIBarButtonItem) {
-        if let json = emojiArt?.json {
-            if let url = try? FileManager.default.url(
-                    for: .documentDirectory,
-                    in: .userDomainMask,
-                    appropriateFor: nil,
-                    create: true
-                ).appendingPathComponent("Untitled.json") {
-                do {
-                    try json.write(to: url)
-                    print("saved successfully")
-                } catch let error {
-                    print("could not save \(error)")
-                }
+    var document: EmojiArtDocument?
+    
+    // sender is optional!
+    @IBAction func save(_ sender: UIBarButtonItem? = nil) {
+//        if let json = emojiArt?.json {
+//            if let url = try? FileManager.default.url(
+//                    for: .documentDirectory,
+//                    in: .userDomainMask,
+//                    appropriateFor: nil,
+//                    create: true
+//                ).appendingPathComponent("Untitled.json") {
+//                do {
+//                    try json.write(to: url)
+//                    print("saved successfully")
+//                } catch let error {
+//                    print("could not save \(error)")
+//                }
+//            }
+//        }
+        document?.emojiArt = emojiArt
+        if document?.emojiArt != nil {
+            document?.updateChangeCount(.done)
+        }
+    }
+    
+    @IBAction func close(_ sender: UIBarButtonItem) {
+        save()
+        if document?.emojiArt != nil {
+            document?.thumbnail = emojiArtView.snapshot
+        }
+        dismiss(animated: true) {
+            self.document?.close()
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        document?.open { success in
+            if success {
+                self.title = self.document?.localizedName
+                self.emojiArt = self.document?.emojiArt
             }
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidLoad() {
         if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Untitled.json") {
-            if let jsonData = try? Data(contentsOf: url) {
-                emojiArt = EmojiArt(json: jsonData)
-            }
+            document = EmojiArtDocument(fileURL: url)
         }
     }
     
@@ -192,7 +217,7 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiInputCell", for: indexPath)
             if let inputCell = cell as? TextFieldCollectionViewCell {
                 // text field cell has a closure that is called when user end editing
-                // there is a memory cycle, as self points to vc, vc points to collection view,
+                // there is a memory  cycle, as self points to vc, vc points to collection view,
                 // collection view points to its cells, and its cell points to this closure.
                 // there is another for inputCell, as we're using it inside the closure which will capture it,
                 // and it is pointing back to the closure through resignationHandler
