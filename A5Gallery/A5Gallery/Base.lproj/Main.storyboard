@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="660" id="le2-9f-8QS"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iV5-1Q-FSd" userLabel="ImageGalleryNameCell" customClass="GalleryDocumentTableViewCell" customModule="A5Gallery" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageGalleryNameCell" id="iV5-1Q-FSd" userLabel="ImageGalleryNameCell" customClass="GalleryDocumentTableViewCell" customModule="A5Gallery" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iV5-1Q-FSd" id="Qz5-sg-GxV">
@@ -95,9 +95,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S01-DZ-WCK">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S01-DZ-WCK">
                                 <rect key="frame" x="0.0" y="0.0" width="704" height="768"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4pa-dB-ble">
                                     <size key="itemSize" width="683" height="351"/>
@@ -155,6 +154,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="S01-DZ-WCK" secondAttribute="trailing" id="2To-EA-r1o"/>
+                            <constraint firstItem="S01-DZ-WCK" firstAttribute="top" secondItem="kjh-HN-ufy" secondAttribute="top" id="7lc-p2-KuY"/>
+                            <constraint firstItem="S01-DZ-WCK" firstAttribute="bottom" secondItem="XQf-Yo-gDn" secondAttribute="bottom" id="DcI-VJ-Yie"/>
+                            <constraint firstItem="S01-DZ-WCK" firstAttribute="leading" secondItem="kjh-HN-ufy" secondAttribute="leading" id="OXT-kS-69v"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XQf-Yo-gDn"/>
                     </view>
                     <navigationItem key="navigationItem" id="6jQ-bY-uU6"/>

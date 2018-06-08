@@ -14,6 +14,11 @@ class GalleryDocumentTableViewController: UIViewController, UITableViewDelegate,
     
     var activeGalleries: [Gallery] = {
         var galleries: [Gallery] = []
+        for name in ["1", "2", "3"] {
+            let gallery = Gallery()
+            gallery.name = name
+            galleries.append(gallery)
+        }
         return galleries
     }()
     
@@ -45,6 +50,16 @@ class GalleryDocumentTableViewController: UIViewController, UITableViewDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition(rawValue: 0)!)
+        splitViewController?.delegate = self
+        
+        for vc in splitViewController?.viewControllers ?? [] {
+            if let secondaryVC = vc.contents as? ImageGalleryDataSource {
+                secondaryVC.imageGallery = activeGalleries[0]
+                break
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,7 +132,7 @@ class GalleryDocumentTableViewController: UIViewController, UITableViewDelegate,
         }
     }
     
-    // reordering
+    // TODO: reordering
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true

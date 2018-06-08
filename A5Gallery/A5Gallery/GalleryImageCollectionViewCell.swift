@@ -38,7 +38,6 @@ class GalleryImageCollectionViewCell: UICollectionViewCell {
                 DispatchQueue.main.async {
                     if let image = UIImage(data: urlContents) {
                         self?.image = image
-                        print("ImageView was set")
                     } else {
                         self?.errorHandler?.noImageData(for: self!)
                         print("error in let image = UIImage(data: urlContents)")

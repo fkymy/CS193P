@@ -12,14 +12,14 @@ protocol GalleryImageErrorHandling: class {
 }
 
 protocol ImageGalleryDataSource: class {
-    var imageGallery: Gallery { get set }
+    var imageGallery: Gallery! { get set }
 }
 
 class GalleryImageCollectionViewController: UIViewController, ImageGalleryDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDragDelegate, UICollectionViewDropDelegate, GalleryImageErrorHandling {
     
     // MARK: - ImageGalleryDataSource
     // todo: make this optional
-    var imageGallery: Gallery = Gallery() {
+    weak var imageGallery: Gallery! {
         didSet {
             collectionView?.reloadData()
         }
@@ -46,6 +46,9 @@ class GalleryImageCollectionViewController: UIViewController, ImageGalleryDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
+        navigationItem.title = "Gallery: " + (imageGallery?.name ?? " undefined")
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
     }
     
     // MARK: - Navigation
@@ -86,16 +89,11 @@ class GalleryImageCollectionViewController: UIViewController, ImageGalleryDataSo
     
     // MARK: - UICollectionViewDelagateFlowLayout
     private var scaleForCollectionViewCell: CGFloat = 1.0
-    
-    private var collectionViewWidth: CGFloat {
-        // return view.frame.size.width
-        return 300
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let aspectRatio = imageGallery.images[indexPath.item].aspectRatio
-        let cellWidth: CGFloat = collectionViewWidth * scaleForCollectionViewCell
-        let cellHeight: CGFloat = collectionViewWidth * scaleForCollectionViewCell / aspectRatio
+        let cellWidth: CGFloat = 200 * scaleForCollectionViewCell
+        let cellHeight: CGFloat = 200 * scaleForCollectionViewCell / aspectRatio
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
