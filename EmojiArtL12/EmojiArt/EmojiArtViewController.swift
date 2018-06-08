@@ -5,8 +5,55 @@
 
 import UIKit
 
+// model and ui
+// sort of like NSAttributedString making Foundation thing a UI thing in certain conditions
+extension EmojiArt.EmojiInfo {
+    init?(label: UILabel) {
+        if let attributedText = label.attributedText, let font = attributedText.font {
+            x = Int(label.center.x)
+            y = Int(label.center.y)
+            text = attributedText.string
+            size = Int(font.pointSize)
+        } else {
+            return nil
+        }
+    }
+}
+
 class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
-   
+
+    // MARK: - Model
+    
+    // computed, so when model is set i can update ui, and vice versa
+    var emojiArt: EmojiArt? {
+        get {
+            if let url = emojiArtBackgroundImage.url {
+                // flatMap/compactMap for ignoring func that returns nil
+                let emojis = emojiArtView.subviews.compactMap { $0 as? UILabel }.compactMap { EmojiArt.EmojiInfo(label: $0) }
+                return EmojiArt(url: url, emojis: emojis)
+            }
+            return nil
+        }
+        set {
+            emojiArtBackgroundImage = (nil, nil)
+            emojiArtView.subviews.compactMap { $0 as? UILabel }.forEach { $0.removeFromSuperview() }
+            if let url = newValue?.url {
+                imageFetcher = ImageFetcher(fetch: url) { (url, image) in
+                    DispatchQueue.main.async {
+                        self.emojiArtBackgroundImage = (url, image)
+                        newValue?.emojis.forEach {
+                            let attributedText = $0.text.attributedString(withTextStyle: .body, ofSize: CGFloat($0.size))
+                            self.emojiArtView.addLabel(with: attributedText, centeredAt: CGPoint(x: $0.x, y: $0.y))
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+    // MARK: StoryBoard
+    
     @IBOutlet weak var dropZone: UIView! {
         didSet {
             dropZone.addInteraction(UIDropInteraction(delegate: self))
@@ -36,15 +83,18 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return emojiArtView
     }
-    
-    var emojiArtBackgroundImage: UIImage? {
+
+    private var _emojiArtBackgroundImageURL: URL? // just for storage
+
+    var emojiArtBackgroundImage: (url: URL?, image: UIImage?) {
         get {
-            return emojiArtView.backgroundImage
+            return (_emojiArtBackgroundImageURL, emojiArtView.backgroundImage)
         }
         set {
+            _emojiArtBackgroundImageURL = newValue.url
             scrollView?.zoomScale = 1.0
-            emojiArtView.backgroundImage = newValue
-            let size = newValue?.size ?? CGSize.zero
+            emojiArtView.backgroundImage = newValue.image
+            let size = newValue.image?.size ?? CGSize.zero
             emojiArtView.frame = CGRect(origin: CGPoint.zero, size: size)
             scrollView?.contentSize = size
             // initial zoom
@@ -80,6 +130,37 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
         // plus button and text field cell is section 0, and section 1 the emojis
         emojiCollectionView.reloadSections(IndexSet(integer: 0))
     }
+    
+    // MARK: - Persistence
+    
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        if let json = emojiArt?.json {
+            if let url = try? FileManager.default.url(
+                    for: .documentDirectory,
+                    in: .userDomainMask,
+                    appropriateFor: nil,
+                    create: true
+                ).appendingPathComponent("Untitled.json") {
+                do {
+                    try json.write(to: url)
+                    print("saved successfully")
+                } catch let error {
+                    print("could not save \(error)")
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Untitled.json") {
+            if let jsonData = try? Data(contentsOf: url) {
+                emojiArt = EmojiArt(json: jsonData)
+            }
+        }
+    }
+    
     
     // MARK: - UICollectionViewDataSource
     
@@ -231,18 +312,49 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
         return UIDropProposal(operation: .copy)
     }
     
+    private var suppressBadURLWarnings = false
+    
+    private func presendBadURLWarning(for url: URL?) {
+        let alert = UIAlertController(
+            title: "Image Transfer Failed",
+            message: "Couldn't tranfer the dropped image from its source.\nShow this warning in the future?",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Keep Warning", style: .default))
+        
+        alert.addAction(UIAlertAction(
+            title: "Stop Warning",
+            style: .destructive,
+            handler: { action in
+                self.suppressBadURLWarnings = true
+            }
+        ))
+        present(alert, animated: true)
+    }
+    
     var imageFetcher: ImageFetcher!
     
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         // consume drag items
         imageFetcher = ImageFetcher() { (url, image) in
             DispatchQueue.main.async {
-                self.emojiArtBackgroundImage = image
+                self.emojiArtBackgroundImage = (url, image)
             }
         }
         session.loadObjects(ofClass: NSURL.self) { nsurl in
             if let url = nsurl.first as? URL {
                 self.imageFetcher.fetch(url)
+//                DispatchQueue.global(qos: .userInitiated).async {
+//                    if let imageData = try? Data(contentsOf: url.imageURL), let image = UIImage(data: imageData) {
+//                        DispatchQueue.main.async {
+//                            self.emojiArtBackgroundImage = (url, image)
+//                            self.documentChanged()
+//                        }
+//                    } else {
+//                        self.presentBadURLWarning(for: url)
+//                    }
+//                }
             }
         }
         session.loadObjects(ofClass: UIImage.self) { image in

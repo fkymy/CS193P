@@ -92,6 +92,7 @@ class GalleryImageCollectionViewController: UIViewController, ImageGalleryDataSo
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let aspectRatio = imageGallery.images[indexPath.item].aspectRatio
+        print(aspectRatio)
         let cellWidth: CGFloat = 200 * scaleForCollectionViewCell
         let cellHeight: CGFloat = 200 * scaleForCollectionViewCell / aspectRatio
         return CGSize(width: cellWidth, height: cellHeight)

@@ -37,7 +37,7 @@ class GalleryImageCollectionViewCell: UICollectionViewCell {
             if let urlContents = try? Data(contentsOf: imageURL) {
                 DispatchQueue.main.async {
                     if let image = UIImage(data: urlContents) {
-                        self?.image = image
+                        self?.imageView?.image = image
                     } else {
                         self?.errorHandler?.noImageData(for: self!)
                         print("error in let image = UIImage(data: urlContents)")
