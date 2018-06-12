@@ -5,7 +5,19 @@
 
 import UIKit
 
+protocol EmojiArtViewDelegate: class {
+    func emojiArtViewDidChange(_ sender: EmojiArtView)
+}
+
+extension Notification.Name {
+    static let EmojiArtViewDidChange = Notification.Name("EmojiArtViewDidChange")
+}
+
 class EmojiArtView: UIView, UIDropInteractionDelegate {
+
+    // MARK: - Delegation
+    
+    weak var delegate: EmojiArtViewDelegate?
 
     // MARK: - Initialization
     
@@ -38,6 +50,8 @@ class EmojiArtView: UIView, UIDropInteractionDelegate {
             let dropPoint = session.location(in: self)
             for attributedString in providers as? [NSAttributedString] ?? [] {
                 self.addLabel(with: attributedString, centeredAt: dropPoint)
+                self.delegate?.emojiArtViewDidChange(self)
+                NotificationCenter.default.post(name: .EmojiArtViewDidChange, object: self)
             }
         }
     }

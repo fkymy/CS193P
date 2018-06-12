@@ -21,6 +21,7 @@
 		D902B3C420CAC90F00A8144D /* EmojiArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B3BD20CAC90F00A8144D /* EmojiArtView.swift */; };
 		D902B3C520CAC90F00A8144D /* EmojiArtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B3BE20CAC90F00A8144D /* EmojiArtViewController.swift */; };
 		D902B3C820CADA4D00A8144D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D902B3C720CADA4D00A8144D /* Info.plist */; };
+		D9EAEBCD20CB6F2C0028F0F0 /* DocumentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EAEBCC20CB6F2C0028F0F0 /* DocumentInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		D902B3BD20CAC90F00A8144D /* EmojiArtView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmojiArtView.swift; path = ../../EmojiArtL12/EmojiArt/EmojiArtView.swift; sourceTree = "<group>"; };
 		D902B3BE20CAC90F00A8144D /* EmojiArtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmojiArtViewController.swift; path = ../../EmojiArtL12/EmojiArt/EmojiArtViewController.swift; sourceTree = "<group>"; };
 		D902B3C720CADA4D00A8144D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../EmojiArtL12/EmojiArt/Info.plist; sourceTree = "<group>"; };
+		D9EAEBCC20CB6F2C0028F0F0 /* DocumentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				D902B3BA20CAC90E00A8144D /* TextFieldCollectionViewCell.swift */,
 				D902B3BC20CAC90F00A8144D /* Utilities.swift */,
 				D902B3AA20CAC6FB00A8144D /* Main.storyboard */,
+				D9EAEBCC20CB6F2C0028F0F0 /* DocumentInfoViewController.swift */,
 				D902B3C620CACA1B00A8144D /* Supporting Files */,
 			);
 			path = EmojiArtPersist;
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9EAEBCD20CB6F2C0028F0F0 /* DocumentInfoViewController.swift in Sources */,
 				D902B3C220CAC90F00A8144D /* EmojiCollectionViewCell.swift in Sources */,
 				D902B3C520CAC90F00A8144D /* EmojiArtViewController.swift in Sources */,
 				D902B3C120CAC90F00A8144D /* TextFieldCollectionViewCell.swift in Sources */,
